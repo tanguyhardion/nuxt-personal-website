@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -6,11 +8,15 @@
   font-weight: normal;
 }
 
-body {
-  background-color: #121212;
-  color: #e6e1e3;
+html {
   min-height: 100vh;
+}
+
+body {
+  background-color: #000;
+  color: #e6e1e3;
   font-family:
+    Inconsolata,
     Inter,
     -apple-system,
     BlinkMacSystemFont,

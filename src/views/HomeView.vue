@@ -1,7 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ProfileInfo from '@/components/ProfileInfo.vue';
+
+</script>
 
 <template>
-  <main></main>
+  <ProfileInfo></ProfileInfo>
+  <div></div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+</style>
