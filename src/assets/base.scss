@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+:root {
+  --foreground-default: #e6e1e3;
+  --background-default: #000;
+}
+
 *,
 *::before,
 *::after {
@@ -13,8 +18,8 @@ html {
 }
 
 body {
-  background-color: #000;
-  color: #e6e1e3;
+  background-color: var(--background-default);
+  color: var(--foreground-default);
   font-family:
     Inconsolata,
     Inter,

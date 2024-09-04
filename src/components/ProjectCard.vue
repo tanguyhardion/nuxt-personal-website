@@ -1,33 +1,48 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { defineProps } from 'vue';
+import type { Project } from '@/model/interfaces/project';
+
+const props = defineProps<{
+  project: Project;
+}>();
+
+const project = props.project;
+</script>
 
 <template>
   <div class="project">
     <div class="image">
-      <slot name="image"></slot>
+      <img
+        :src="project.image"
+        alt="Project image"
+      />
     </div>
     <div class="content">
       <div class="header">
-        <slot name="header"></slot>
+        <h2>{{ project.title }}</h2>
         <div class="chips">
           <div class="duration chip">
-            <slot name="duration"></slot>
+            <span class="material-icons">schedule</span>
+            <span>{{ project.duration }}</span>
           </div>
           <div class="team chip">
-            <slot name="team"></slot>
+            <span class="material-icons">groups</span>
+            <span>{{ project.team }}</span>
           </div>
           <div class="technologies chip">
-            <slot name="technologies"></slot>
+            <span class="material-icons">code</span>
+            <span>{{ project.technologies.join(', ') }}</span>
           </div>
         </div>
       </div>
       <div class="description">
-        <slot name="description"></slot>
+        <p>{{ project.description }}</p>
       </div>
       <div
         class="link"
-        v-if="$slots.link"
+        v-if="project.link"
       >
-        <slot name="link"></slot>
+        <a :href="project.link">{{ project.link }}</a>
       </div>
     </div>
   </div>

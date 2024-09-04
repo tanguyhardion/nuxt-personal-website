@@ -41,6 +41,7 @@ watch(
         class="nav-link"
       >
         {{ link.name }}
+        <span class="underline"></span>
       </RouterLink>
     </nav>
   </header>
@@ -59,10 +60,9 @@ watch(
   width: 100vw;
   height: 100vh;
   background: linear-gradient(150deg, var(--active-color), #000000, #000000);
-  background-size: 200% 200%;
-  -webkit-animation: gradient 30s ease infinite;
-  -moz-animation: gradient 30s ease infinite;
-  animation: gradient 30s ease infinite;
+  background-size: 300% 300%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 header {
@@ -79,53 +79,31 @@ nav {
 
   .nav-link {
     font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+
+    .underline {
+      display: block;
+      height: 2px;
+      margin: 0 auto;
+      width: 0;
+      transition: width 0.4s ease-out;
+      background: var(--foreground-default);
+    }
 
     &.router-link-active,
     &:hover {
       color: var(--link-color);
-      text-decoration: underline;
-      text-underline-offset: 2px;
+      
+      .underline {
+        width: 100%;
+        background: var(--link-color);
+      }
     }
   }
 }
 
 main {
   margin: 80px 20px 0 20px;
-}
-
-@-webkit-keyframes gradient {
-  0% {
-    background-position: 50% 100%;
-  }
-  50% {
-    background-position: 50% 0%;
-  }
-  100% {
-    background-position: 50% 100%;
-  }
-}
-
-@-moz-keyframes gradient {
-  0% {
-    background-position: 50% 100%;
-  }
-  50% {
-    background-position: 50% 0%;
-  }
-  100% {
-    background-position: 50% 100%;
-  }
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 50% 100%;
-  }
-  50% {
-    background-position: 50% 0%;
-  }
-  100% {
-    background-position: 50% 100%;
-  }
 }
 </style>

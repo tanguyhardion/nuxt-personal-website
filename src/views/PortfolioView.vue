@@ -40,37 +40,8 @@ const projects: Project[] = [
     <ProjectCard
       v-for="project in projects"
       :key="project.title"
+      :project="project"
     >
-      <template #image>
-        <img
-          :src="project.image"
-          alt="Project image"
-        />
-      </template>
-      <template #header>
-        <h2>{{ project.title }}</h2>
-      </template>
-      <template #duration>
-        <span class="material-icons">schedule</span>
-        <span>{{ project.duration }}</span>
-      </template>
-      <template #team>
-        <span class="material-icons">groups</span>
-        <span>{{ project.team }}</span>
-      </template>
-      <template #technologies>
-        <span class="material-icons">code</span>
-        <span>{{ project.technologies.join(', ') }}</span>
-      </template>
-      <template #description>
-        <p>{{ project.description }}</p>
-      </template>
-      <template
-        #link
-        v-if="project.link"
-      >
-        <a :href="project.link">{{ project.link }}</a>
-      </template>
     </ProjectCard>
   </div>
 
@@ -89,7 +60,7 @@ const projects: Project[] = [
 .disclaimer {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin: 30px 0;
   color: #757678;
 }
 

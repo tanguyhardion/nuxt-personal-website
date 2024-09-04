@@ -1,7 +1,7 @@
 @import './base.scss';
 
 a {
-  color: #e6e1e3;
+  color: var(--foreground-default);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
