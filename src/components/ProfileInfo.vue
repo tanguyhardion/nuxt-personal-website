@@ -12,7 +12,7 @@ setInterval(() => {
 
 <template>
   <div class="profile">
-    <!-- <h1 class="name">Tanguy Hardion</h1> -->
+    <h1 class="name">Tanguy Hardion</h1>
     <p class="info">
       I'm a
       <b> {{ age }} </b>
@@ -33,7 +33,6 @@ setInterval(() => {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  margin: 100px 20px 0 20px;
 
   .name {
     font-size: 4.75rem;

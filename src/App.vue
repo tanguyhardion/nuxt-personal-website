@@ -5,11 +5,12 @@ import { RouterLink, RouterView, useRoute } from 'vue-router';
 const route = useRoute();
 
 const links = ref([
-  { name: 'Home', path: '/', color: '#1462ac', active: true },
-  { name: 'Portfolio', path: '/portfolio', color: '#f7b801', active: false },
-  { name: 'Experience', path: '/experience', color: '#02ab24', active: false },
-  { name: 'Academics', path: '/academics', color: '#e03a3e', active: false },
-  { name: 'More', path: '/more', color: '#616366', active: false }
+  { name: 'Home', path: '/', color: '#5ec9f8', active: true },
+  { name: 'Portfolio', path: '/portfolio', color: '#5ab836', active: false },
+  { name: 'Experience', path: '/experience', color: '#f16529', active: false },
+  { name: 'Skills', path: '/skills', color: '#9148ff', active: false },
+  { name: 'Academics', path: '/academics', color: '#ffdd48', active: false },
+  { name: 'More', path: '/more', color: '#757678', active: false }
 ]);
 
 watch(
@@ -23,20 +24,30 @@ watch(
 </script>
 
 <template>
-  <div class="gradient"></div>
+  <div
+    class="gradient"
+    :style="{
+      '--active-color': links.find((l) => l.active)?.color + 'B3'
+    }"
+  ></div>
+
   <header>
     <nav>
       <RouterLink
         v-for="link in links"
         :key="link.path"
         :to="link.path"
+        :style="{ '--link-color': link.color }"
         class="nav-link"
       >
         {{ link.name }}
       </RouterLink>
     </nav>
   </header>
-  <RouterView />
+
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <style lang="scss" scoped>
@@ -44,16 +55,19 @@ watch(
   position: fixed;
   top: 0;
   left: 0;
-  width: 45vw;
-  height: 45vw;
-  pointer-events: none;
   z-index: -1;
-  background: radial-gradient(ellipse at top left, v-bind('links.find(l => l.active)?.color'), #000, #000);
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(150deg, var(--active-color), #000000, #000000);
+  background-size: 200% 200%;
+  -webkit-animation: gradient 30s ease infinite;
+  -moz-animation: gradient 30s ease infinite;
+  animation: gradient 30s ease infinite;
 }
 
 header {
   width: 600px;
-  padding: 10px;
+  padding: 16px;
   position: fixed;
   top: 0;
   right: 0;
@@ -64,16 +78,54 @@ nav {
   justify-content: space-around;
 
   .nav-link {
-    color: white;
     font-weight: 600;
-    text-decoration: none;
 
     &.router-link-active,
     &:hover {
-      color: v-bind('links.find(l => l.active)?.color');
+      color: var(--link-color);
       text-decoration: underline;
       text-underline-offset: 2px;
     }
+  }
+}
+
+main {
+  margin: 80px 20px 0 20px;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+@-moz-keyframes gradient {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
   }
 }
 </style>
