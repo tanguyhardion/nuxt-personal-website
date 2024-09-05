@@ -16,7 +16,7 @@ setInterval(() => {
     <p class="info">
       I'm a
       <b> {{ age }} </b>
-      year-old student, currently studying
+      year-old computer engineering student, majoring in
       <b> AI </b>
       and
       <b> Data Science </b>
@@ -32,12 +32,11 @@ setInterval(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
 
   .name {
     font-size: 4.75rem;
     font-weight: 900;
-    letter-spacing: -1.5px;
     text-align: center;
   }
 
