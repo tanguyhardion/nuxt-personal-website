@@ -6,7 +6,7 @@ const route = useRoute();
 
 const links = ref([
   { name: 'Home', path: '/', color: '#5ec9f8', active: true },
-  { name: 'Portfolio', path: '/portfolio', color: '#5ab836', active: false },
+  { name: 'Portfolio', path: '/portfolio', color: '#dc143c', active: false },
   { name: 'Experience', path: '/experience', color: '#f16529', active: false },
   { name: 'Skills', path: '/skills', color: '#9148ff', active: false },
   { name: 'Academics', path: '/academics', color: '#ffdd48', active: false },
@@ -19,8 +19,20 @@ watch(
     links.value.forEach((link) => {
       link.active = link.name.toLowerCase() === newRoute;
     });
+
+    if (newRoute) {
+      const routeString = newRoute.toString();
+
+      document.title = getTitle(routeString);
+    }
   }
 );
+
+function getTitle(route: string) {
+  return route === 'Home'
+    ? 'Tanguy Hardion'
+    : `Tanguy Hardion - ${route.charAt(0).toUpperCase() + route.slice(1)}`;
+}
 </script>
 
 <template>
@@ -94,7 +106,7 @@ nav {
     &.router-link-active,
     &:hover {
       color: var(--link-color);
-      
+
       .underline {
         width: 100%;
         background: var(--link-color);

@@ -95,7 +95,7 @@ const project = props.project;
           padding: 2px 8px;
           border-radius: 8px;
           background-color: #121212;
-          font-size: 13px;
+          font-size: 0.8rem;
         }
       }
     }
