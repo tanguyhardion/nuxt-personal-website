@@ -1,38 +1,7 @@
 <script setup lang="ts">
 import ProjectCard from '@/components/ProjectCard.vue';
-import { ProjectContext } from '@/model/enums/project-context';
-import type { Project } from '@/model/interfaces/project';
 
-const projects: Project[] = [
-  {
-    title: 'CPage Map',
-    description: 'Description 1',
-    technologies: ['ETL', 'Angular', 'SpringBoot', 'PostgreSQL', 'Leaflet'],
-    duration: '2 months',
-    team: 1,
-    context: ProjectContext.Personal,
-    image: 'https://via.placeholder.com/150',
-    link: 'https://www.google.com'
-  },
-  {
-    title: 'Project 2',
-    description: 'Description 2',
-    technologies: ['Angular', 'SpringBoot', 'PostgreSQL'],
-    duration: '2 months',
-    team: 3,
-    context: ProjectContext.School,
-    image: 'https://via.placeholder.com/150'
-  },
-  {
-    title: 'Project 3',
-    description: 'Description 3',
-    technologies: ['React', 'Node.js', 'MongoDB'],
-    duration: '3 months',
-    team: 5,
-    context: ProjectContext.Work,
-    image: 'https://via.placeholder.com/150'
-  }
-];
+import { projects } from '@/data/project-list';
 </script>
 
 <template>
@@ -65,7 +34,7 @@ const projects: Project[] = [
 }
 
 .projects {
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;

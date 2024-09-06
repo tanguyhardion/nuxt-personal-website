@@ -23,6 +23,14 @@ setInterval(() => {
       at
       <b> UTC</b>.
     </p>
+    <p class="info">
+      Currently, I'm looking for a
+      <b> 6-month internship </b>
+      in
+      <b> AI,</b>
+      starting in
+      <b>February 2025</b>.
+    </p>
   </div>
   <div></div>
 </template>
@@ -37,11 +45,11 @@ setInterval(() => {
   .name {
     font-size: 4.75rem;
     font-weight: 900;
-    text-align: center;
   }
 
   .info {
     font-size: 1.5rem;
+    text-align: center;
 
     b {
       font-weight: 700;

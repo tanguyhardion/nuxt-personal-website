@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+
 import type { Project } from '@/model/interfaces/project';
+import { ProjectContext } from '@/model/enums/project-context';
+import { getImageUrl } from '@/utils/image-url';
 
 const props = defineProps<{
   project: Project;
@@ -13,7 +16,7 @@ const project = props.project;
   <div class="project">
     <div class="image">
       <img
-        :src="project.image"
+        :src="getImageUrl(`projects/${project.image}`)"
         alt="Project image"
       />
     </div>
@@ -29,6 +32,24 @@ const project = props.project;
             <span class="material-icons">groups</span>
             <span>{{ project.team }}</span>
           </div>
+          <div class="context chip">
+            <span
+              class="material-icons"
+              v-if="project.context === ProjectContext.Personal"
+              >person</span
+            >
+            <span
+              class="material-icons"
+              v-else-if="project.context === ProjectContext.School"
+              >school</span
+            >
+            <span
+              class="material-icons"
+              v-else-if="project.context === ProjectContext.Work"
+              >work</span
+            >
+            <span>{{ project.context }}</span>
+          </div>
           <div class="technologies chip">
             <span class="material-icons">code</span>
             <span>{{ project.technologies.join(', ') }}</span>
@@ -38,11 +59,22 @@ const project = props.project;
       <div class="description">
         <p>{{ project.description }}</p>
       </div>
-      <div
-        class="link"
-        v-if="project.link"
-      >
-        <a :href="project.link">{{ project.link }}</a>
+      <div class="footer">
+        <div
+          class="link"
+          v-if="project.link"
+        >
+          <a :href="project.link" target="_blank">{{ project.link.replace('https://', '') }}</a>
+        </div>
+        <div
+          class="context-logo"
+          v-if="project.contextLogo"
+        >
+          <img
+            :src="getImageUrl(`contexts/${project.contextLogo}`)"
+            alt="Context logo"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -54,12 +86,14 @@ const project = props.project;
   align-items: center;
   gap: 20px;
   width: 100%;
+  height: 200px;
 
   .image {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 24px;
     overflow: hidden;
+    flex: 0 0 200px;
 
     img {
       width: 100%;
@@ -71,8 +105,9 @@ const project = props.project;
   .content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: space-around;
     width: 100%;
+    height: 100%;
 
     .header {
       display: flex;
@@ -82,6 +117,7 @@ const project = props.project;
 
       h2 {
         font-size: 1.5rem;
+        font-weight: 700;
       }
 
       .chips {
@@ -92,16 +128,42 @@ const project = props.project;
           display: flex;
           align-items: center;
           gap: 5px;
-          padding: 2px 8px;
+          padding: 4px 8px;
           border-radius: 8px;
           background-color: #121212;
           font-size: 0.8rem;
+
+          .material-icons {
+            font-size: 20px;
+            margin-right: 2px;
+          }
         }
       }
     }
 
     .description {
       font-size: 1rem;
+      text-align: justify;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+
+      .context-logo {
+        width: 150px;
+        margin-left: auto;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .link {
+        font-style: italic;
+      }
     }
   }
 }

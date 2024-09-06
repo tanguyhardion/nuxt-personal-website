@@ -5,8 +5,8 @@ import { RouterLink, RouterView, useRoute } from 'vue-router';
 const route = useRoute();
 
 const links = ref([
-  { name: 'Home', path: '/', color: '#5ec9f8', active: true },
-  { name: 'Portfolio', path: '/portfolio', color: '#dc143c', active: false },
+  { name: 'Home', path: '/', color: '#dc143c', active: true },
+  { name: 'Portfolio', path: '/portfolio', color: '#5ec9f8', active: false },
   { name: 'Experience', path: '/experience', color: '#f16529', active: false },
   { name: 'Skills', path: '/skills', color: '#9148ff', active: false },
   { name: 'Academics', path: '/academics', color: '#ffdd48', active: false },
@@ -29,7 +29,7 @@ watch(
 );
 
 function getTitle(route: string) {
-  return route === 'Home'
+  return route === 'home'
     ? 'Tanguy Hardion'
     : `Tanguy Hardion - ${route.charAt(0).toUpperCase() + route.slice(1)}`;
 }
@@ -80,9 +80,7 @@ function getTitle(route: string) {
 header {
   width: 600px;
   padding: 16px;
-  position: fixed;
-  top: 0;
-  right: 0;
+  margin-left: auto;
 }
 
 nav {
@@ -116,6 +114,6 @@ nav {
 }
 
 main {
-  margin: 80px 20px 0 20px;
+  margin: 60px 20px 0 20px;
 }
 </style>
