@@ -64,7 +64,15 @@ const project = props.project;
           class="link"
           v-if="project.link"
         >
-          <a :href="project.link" target="_blank">{{ project.link.replace('https://', '') }}</a>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png"
+            v-if="project.link.includes('github.com')"
+          />
+          <a
+            :href="project.link"
+            target="_blank"
+            >{{ project.link.replace('https://', '') }}</a
+          >
         </div>
         <div
           class="context-logo"
@@ -163,6 +171,15 @@ const project = props.project;
 
       .link {
         font-style: italic;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        img {
+          width: 20px;
+          margin-right: 5px;
+          filter: invert(1);
+        }
       }
     }
   }

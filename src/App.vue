@@ -6,8 +6,8 @@ const route = useRoute();
 
 const links = ref([
   { name: 'Home', path: '/', color: '#dc143c', active: true },
-  { name: 'Portfolio', path: '/portfolio', color: '#5ec9f8', active: false },
   { name: 'Experience', path: '/experience', color: '#f16529', active: false },
+  { name: 'Projects', path: '/projects', color: '#5ec9f8', active: false },
   { name: 'Skills', path: '/skills', color: '#9148ff', active: false },
   { name: 'Academics', path: '/academics', color: '#ffdd48', active: false },
   { name: 'More', path: '/more', color: '#757678', active: false }

@@ -4,6 +4,17 @@ import type { Project } from '@/model/interfaces/project';
 
 export const projects: Project[] = [
   {
+    title: 'Personal Website',
+    description: `You're looking at it! I like to think of it as a digital resume, more personal and interactive
+    than a traditional one or a LinkedIn profile (although you can find me there too). It's also more fun to make!`,
+    duration: '2 months',
+    team: 1,
+    technologies: ['Vue.js', 'GitHub Pages'],
+    context: ProjectContext.Personal,
+    image: 'website.png',
+    link: 'https://github.com/tanguyhardion/tanguyhardion.github.io'
+  },
+  {
     title: 'CPage Map',
     description: `A web application displaying an interactive map of CPage's customers, public health institutions in France.
     It shows relevant data and lets CPage collaborators log satisfaction levels after interactions (calls, emails, visits).
@@ -13,17 +24,7 @@ export const projects: Project[] = [
     technologies: ['ETL', 'Angular', 'SpringBoot', 'PostgreSQL', 'Leaflet'],
     context: ProjectContext.Work,
     contextLogo: ProjectContextLogo.CPage,
-    image: 'map.jpeg',
-  },  
-  {
-    title: 'Visualizer',
-    description: 'Description 2',
-    duration: '2 months',
-    team: 1,
-    context: ProjectContext.Work,
-    contextLogo: ProjectContextLogo.CPage,
-    technologies: ['ETL', 'Angular', 'PostgreSQL', 'Leaflet'],
-    image: 'https://via.placeholder.com/150',
+    image: 'map.png'
   },
   {
     title: 'TensorFlow CNN on CIFAR-100',
@@ -36,5 +37,15 @@ export const projects: Project[] = [
     technologies: ['Python', 'TensorFlow', 'Keras', 'HuggingFace'],
     image: 'cnn.png',
     link: 'https://github.com/tanguyhardion/cifar100-cnn'
+  },
+  {
+    title: 'Visualizer',
+    description: 'Description 2',
+    duration: '2 months',
+    team: 1,
+    context: ProjectContext.Work,
+    contextLogo: ProjectContextLogo.CPage,
+    technologies: ['ETL', 'Angular', 'PostgreSQL', 'Leaflet'],
+    image: 'https://via.placeholder.com/150'
   }
 ];
