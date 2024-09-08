@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import ProjectCard from '@/components/ProjectCard.vue';
 
-import { projects } from '@/data/project-list';
+import { projectList } from '@/data/project-list';
 </script>
 
 <template>
   <div class="projects">
     <ProjectCard
-      v-for="project in projects"
+      v-for="project in projectList"
       :key="project.title"
       :project="project"
     >

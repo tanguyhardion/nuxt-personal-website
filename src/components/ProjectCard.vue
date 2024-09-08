@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
-
 import type { Project } from '@/model/interfaces/project';
 import { ProjectContext } from '@/model/enums/project-context';
 import { getImageUrl } from '@/utils/image-url';
@@ -16,7 +14,7 @@ const project = props.project;
   <div class="project">
     <div class="image">
       <img
-        :src="getImageUrl(`projects/${project.image}`)"
+        :src="getImageUrl(`illustrations/${project.image}`)"
         alt="Project image"
       />
     </div>
@@ -79,7 +77,7 @@ const project = props.project;
           v-if="project.contextLogo"
         >
           <img
-            :src="getImageUrl(`contexts/${project.contextLogo}`)"
+            :src="getImageUrl(`logos/${project.contextLogo}`)"
             alt="Context logo"
           />
         </div>

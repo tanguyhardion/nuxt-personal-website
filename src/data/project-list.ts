@@ -1,8 +1,7 @@
 import { ProjectContext } from '@/model/enums/project-context';
-import { ProjectContextLogo } from '@/model/enums/project-context-logo';
 import type { Project } from '@/model/interfaces/project';
 
-export const projects: Project[] = [
+export const projectList: Project[] = [
   {
     title: 'Personal Website',
     description: `You're looking at it! I like to think of it as a digital resume, more personal and interactive
@@ -23,7 +22,7 @@ export const projects: Project[] = [
     team: 1,
     technologies: ['ETL', 'Angular', 'SpringBoot', 'PostgreSQL', 'Leaflet'],
     context: ProjectContext.Work,
-    contextLogo: ProjectContextLogo.CPage,
+    contextLogo: 'cpage.svg',
     image: 'map.png'
   },
   {
@@ -33,7 +32,7 @@ export const projects: Project[] = [
     duration: '2 months',
     team: 1,
     context: ProjectContext.School,
-    contextLogo: ProjectContextLogo.UTT,
+    contextLogo: 'utt.svg',
     technologies: ['Python', 'TensorFlow', 'Keras', 'HuggingFace'],
     image: 'cnn.png',
     link: 'https://github.com/tanguyhardion/cifar100-cnn'
@@ -44,7 +43,7 @@ export const projects: Project[] = [
     duration: '2 months',
     team: 1,
     context: ProjectContext.Work,
-    contextLogo: ProjectContextLogo.CPage,
+    contextLogo: 'cpage.svg',
     technologies: ['ETL', 'Angular', 'PostgreSQL', 'Leaflet'],
     image: 'https://via.placeholder.com/150'
   }

@@ -1,5 +1,4 @@
 import type { ProjectContext } from "@/model/enums/project-context";
-import type { ProjectContextLogo } from "@/model/enums/project-context-logo";
 
 export interface Project {
   title: string;
@@ -8,7 +7,7 @@ export interface Project {
   team: number;
   technologies: string[];
   context: ProjectContext;
-  contextLogo?: ProjectContextLogo;
+  contextLogo?: string;
   image: string;
   link?: string;
 }
