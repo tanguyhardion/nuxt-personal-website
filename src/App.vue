@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { RouterLink, RouterView, useRoute } from 'vue-router';
-
-const route = useRoute();
+import { ref } from 'vue';
+import { RouterView } from 'vue-router';
+import NavBar from '@/components/NavBar.vue';
 
 const links = ref([
   { name: 'Home', path: '/', color: '#dc143c', active: true },
@@ -13,49 +12,19 @@ const links = ref([
   { name: 'More', path: '/more', color: '#757678', active: false }
 ]);
 
-watch(
-  () => route.name,
-  async (newRoute) => {
-    links.value.forEach((link) => {
-      link.active = link.name.toLowerCase() === newRoute;
-    });
-
-    if (newRoute) {
-      const routeString = newRoute.toString();
-
-      document.title = getTitle(routeString);
-    }
-  }
-);
-
-function getTitle(route: string) {
-  return route === 'home'
-    ? 'Tanguy Hardion'
-    : `Tanguy Hardion - ${route.charAt(0).toUpperCase() + route.slice(1)}`;
+function randomDegree(): string {
+  return Math.floor(Math.random() * 360) + 'deg';
 }
 </script>
 
 <template>
-  <div
-    class="gradient"
-    :style="{
-      '--active-color': links.find((l) => l.active)?.color + 'B3'
-    }"
-  ></div>
+  <div class="gradient" :style="{
+    '--active-color': links.find((l) => l.active)?.color + 'B3',
+    '--orientation': `${randomDegree()}`
+  }"></div>
 
   <header>
-    <nav>
-      <RouterLink
-        v-for="link in links"
-        :key="link.path"
-        :to="link.path"
-        :style="{ '--link-color': link.color }"
-        class="nav-link"
-      >
-        {{ link.name }}
-        <span class="underline"></span>
-      </RouterLink>
-    </nav>
+    <NavBar :links="links" />
   </header>
 
   <main>
@@ -71,7 +40,7 @@ function getTitle(route: string) {
   z-index: -1;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(150deg, var(--active-color), #000000, #000000);
+  background: linear-gradient(var(--orientation), var(--active-color), #000000, #000000);
   background-size: 300% 300%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -81,36 +50,6 @@ header {
   width: 600px;
   padding: 16px;
   margin-left: auto;
-}
-
-nav {
-  display: flex;
-  justify-content: space-around;
-
-  .nav-link {
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-
-    .underline {
-      display: block;
-      height: 2px;
-      margin: 0 auto;
-      width: 0;
-      transition: width 0.4s ease-out;
-      background: var(--foreground-default);
-    }
-
-    &.router-link-active,
-    &:hover {
-      color: var(--link-color);
-
-      .underline {
-        width: 100%;
-        background: var(--link-color);
-      }
-    }
-  }
 }
 
 main {

@@ -3,5 +3,4 @@ export type School = {
   logo: string;
   location: string;
   link: string;
-  gpa?: string;
 };

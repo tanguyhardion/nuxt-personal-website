@@ -6,21 +6,13 @@ import { projectList } from '@/data/project-list';
 
 <template>
   <div class="projects">
-    <ProjectCard
-      v-for="project in projectList"
-      :key="project.title"
-      :project="project"
-    >
+    <ProjectCard v-for="project in projectList" :key="project.title" :project="project">
     </ProjectCard>
   </div>
 
   <em class="disclaimer">
     This is just a showcase. For more projects, check out my&nbsp;
-    <a
-      href="https://github.com/tanguyhardion"
-      target="_blank"
-      >GitHub</a
-    >
+    <a href="https://github.com/tanguyhardion" target="_blank">GitHub</a>
     .
   </em>
 </template>

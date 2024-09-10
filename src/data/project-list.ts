@@ -39,12 +39,16 @@ export const projectList: Project[] = [
   },
   {
     title: 'Visualizer',
-    description: 'Description 2',
-    duration: '2 months',
+    description: `Development of a dependencies graph to map solutions and their respective versions,
+    enhancing project management and compatibility tracking.
+    Restructured the delivery process through custom Maven plugins to streamline deployment.
+    Conducted training and quantification of the Llama2 language model for a proof of concept using PyTorch and HuggingFace.
+    Integrated RPM file generation into both technical and business projects, improving overall automation and workflow efficiency.`,
+    duration: '6 months',
     team: 1,
     context: ProjectContext.Work,
     contextLogo: 'cpage.svg',
-    technologies: ['ETL', 'Angular', 'PostgreSQL', 'Leaflet'],
-    image: 'https://via.placeholder.com/150'
+    technologies: ['Java', 'RegEx', 'Angular', 'SpringBoot', 'Oracle', 'Sigma.js'],
+    image: 'graph.png'
   }
 ];

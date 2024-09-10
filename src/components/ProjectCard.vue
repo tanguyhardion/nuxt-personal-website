@@ -6,17 +6,13 @@ import { getImageUrl } from '@/utils/image-url';
 const props = defineProps<{
   project: Project;
 }>();
-
 const project = props.project;
 </script>
 
 <template>
   <div class="project">
     <div class="image">
-      <img
-        :src="getImageUrl(`illustrations/${project.image}`)"
-        alt="Project image"
-      />
+      <img :src="getImageUrl(`illustrations/${project.image}`)" alt="project_image" />
     </div>
     <div class="content">
       <div class="header">
@@ -31,21 +27,9 @@ const project = props.project;
             <span>{{ project.team }}</span>
           </div>
           <div class="context chip">
-            <span
-              class="material-icons"
-              v-if="project.context === ProjectContext.Personal"
-              >person</span
-            >
-            <span
-              class="material-icons"
-              v-else-if="project.context === ProjectContext.School"
-              >school</span
-            >
-            <span
-              class="material-icons"
-              v-else-if="project.context === ProjectContext.Work"
-              >work</span
-            >
+            <span class="material-icons" v-if="project.context === ProjectContext.Personal">person</span>
+            <span class="material-icons" v-else-if="project.context === ProjectContext.School">school</span>
+            <span class="material-icons" v-else-if="project.context === ProjectContext.Work">work</span>
             <span>{{ project.context }}</span>
           </div>
           <div class="technologies chip">
@@ -58,28 +42,14 @@ const project = props.project;
         <p>{{ project.description }}</p>
       </div>
       <div class="footer">
-        <div
-          class="link"
-          v-if="project.link"
-        >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png"
-            v-if="project.link.includes('github.com')"
-          />
-          <a
-            :href="project.link"
-            target="_blank"
-            >{{ project.link.replace('https://', '') }}</a
-          >
+        <div class="link" v-if="project.link">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png"
+            v-if="project.link.includes('github.com')" />
+          <a :href="project.link" target="_blank" v-if="project.link.includes('github.com')">github repo</a>
+          <a :href="project.link" target="_blank" v-else>{{ project.link.replace('https://', '') }}</a>
         </div>
-        <div
-          class="context-logo"
-          v-if="project.contextLogo"
-        >
-          <img
-            :src="getImageUrl(`logos/${project.contextLogo}`)"
-            alt="Context logo"
-          />
+        <div class="context-logo" v-if="project.contextLogo">
+          <img :src="getImageUrl(`logos/${project.contextLogo}`)" alt="context_logo" />
         </div>
       </div>
     </div>
@@ -89,7 +59,6 @@ const project = props.project;
 <style lang="scss" scoped>
 .project {
   display: flex;
-  align-items: center;
   gap: 20px;
   width: 100%;
   height: 200px;
