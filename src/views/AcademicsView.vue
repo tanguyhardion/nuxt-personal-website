@@ -12,10 +12,11 @@ import { academicList } from '@/data/academic-list';
 
 <style lang="scss" scoped>
 .academics {
-  width: 90%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
+  gap: 20px;
 }
 </style>

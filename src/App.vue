@@ -11,17 +11,9 @@ const links = ref([
   { name: 'Academics', path: '/academics', color: '#ffdd48', active: false },
   { name: 'More', path: '/more', color: '#757678', active: false }
 ]);
-
-function randomDegree(): string {
-  return Math.floor(Math.random() * 360) + 'deg';
-}
 </script>
 
 <template>
-  <div class="gradient" :style="{
-    '--active-color': links.find((l) => l.active)?.color + 'B3',
-    '--orientation': `${randomDegree()}`
-  }"></div>
 
   <header>
     <NavBar :links="links" />
@@ -33,19 +25,6 @@ function randomDegree(): string {
 </template>
 
 <style lang="scss" scoped>
-.gradient {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(var(--orientation), var(--active-color), #000000, #000000);
-  background-size: 300% 300%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
-
 header {
   width: 600px;
   padding: 16px;

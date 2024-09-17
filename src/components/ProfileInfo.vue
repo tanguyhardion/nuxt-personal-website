@@ -26,8 +26,6 @@ setInterval(() => {
     <p class="info">
       Currently, I'm looking for a
       <b> 6-month internship abroad </b>
-      in
-      <b> AI,</b>
       starting in
       <b>February 2025</b>.
     </p>
