@@ -14,6 +14,7 @@ const links = ref([
 </script>
 
 <template>
+  <div class="banner">Work in progress.</div>
 
   <header>
     <NavBar :links="links" />
@@ -25,6 +26,17 @@ const links = ref([
 </template>
 
 <style lang="scss" scoped>
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #757678;
+  background: #151515;
+  padding: 8px 16px;
+}
+
 header {
   width: 600px;
   padding: 16px;
