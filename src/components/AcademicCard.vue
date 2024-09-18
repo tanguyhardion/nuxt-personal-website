@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onBeforeMount } from 'vue';
+import { ref } from 'vue';
 import type { Academic } from '@/model/interfaces/academic';
 import { getImageUrl } from '@/utils/image-url';
 import { getImageColor } from '@/utils/image-color';
@@ -10,11 +10,7 @@ const props = defineProps<{
 const academic = props.academic;
 
 const backgroundColor = ref('');
-
-onBeforeMount(async () => {
-  backgroundColor.value = await getImageColor(getImageUrl(`logos/${academic.school.logo}`));
-  console.log(backgroundColor.value);
-});
+backgroundColor.value = await getImageColor(getImageUrl(`logos/${academic.school.logo}`));
 
 function formatDate(date: Date): string {
   const [year, month] = date.toISOString().split('-');
