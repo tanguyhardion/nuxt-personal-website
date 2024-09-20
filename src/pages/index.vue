@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ProfileInfo from '@/components/ProfileInfo.vue';
 </script>
 
 <template>
@@ -10,6 +9,6 @@ import ProfileInfo from '@/components/ProfileInfo.vue';
 
 <style lang="scss" scoped>
 .profile-info {
-  margin-top: 200px;
+  margin-top: 150px;
 }
 </style>

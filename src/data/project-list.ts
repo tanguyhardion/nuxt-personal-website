@@ -22,7 +22,7 @@ export const projectList: Project[] = [
     team: 1,
     technologies: ['ETL', 'Angular', 'SpringBoot', 'PostgreSQL', 'Leaflet'],
     context: ProjectContext.Work,
-    contextLogo: 'cpage.svg',
+    contextLogo: 'cpage.png',
     image: 'map.png'
   },
   {
@@ -32,7 +32,7 @@ export const projectList: Project[] = [
     duration: '2 months',
     team: 1,
     context: ProjectContext.School,
-    contextLogo: 'utt.svg',
+    contextLogo: 'utt.png',
     technologies: ['Python', 'TensorFlow', 'Keras', 'HuggingFace'],
     image: 'cnn.png',
     link: 'https://github.com/tanguyhardion/cifar100-cnn'
@@ -47,7 +47,7 @@ export const projectList: Project[] = [
     duration: '6 months',
     team: 1,
     context: ProjectContext.Work,
-    contextLogo: 'cpage.svg',
+    contextLogo: 'cpage.png',
     technologies: ['Java', 'RegEx', 'Angular', 'SpringBoot', 'Oracle', 'Sigma.js'],
     image: 'graph.png'
   }

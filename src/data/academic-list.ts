@@ -4,7 +4,7 @@ export const academicList: Academic[] = [
   {
     school: {
       name: 'Université de Technologie de Compiègne (UTC)',
-      logo: 'utc.svg',
+      logo: 'utc.png',
       location: 'Compiègne, France',
       link: 'https://utc.fr/',
     },
@@ -19,7 +19,7 @@ export const academicList: Academic[] = [
   {
     school: {
       name: 'Université de Technologie de Troyes (UTT)',
-      logo: 'utt.svg',
+      logo: 'utt.png',
       location: 'Troyes, France',
       link: 'https://utt.fr/',
     },

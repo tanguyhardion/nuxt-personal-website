@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import dayjs from 'dayjs';
 
 let age = ref('');
 
-setInterval(() => {
-  const result = dayjs().diff(dayjs(1044801960000), 'year', true);
-  age.value = result.toString().substring(0, 12);
-}, 50);
+onMounted(() => {
+  setInterval(() => {
+    const result = dayjs().diff(dayjs(1044801960000), 'year', true);
+    age.value = result.toString().substring(0, 12);
+  }, 50);
+});
 </script>
 
 <template>
@@ -37,7 +38,7 @@ setInterval(() => {
 .profile {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
   gap: 30px;
 
   .name {
@@ -47,7 +48,6 @@ setInterval(() => {
 
   .info {
     font-size: 1.5rem;
-    text-align: center;
 
     b {
       font-weight: 700;

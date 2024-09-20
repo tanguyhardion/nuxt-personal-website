@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type { Project } from '@/model/interfaces/project';
-import { ProjectContext } from '@/model/enums/project-context';
-import { getImageUrl } from '@/utils/image-url';
+import type { Project } from '~/model/interfaces/project';
+import { ProjectContext } from '~/model/enums/project-context';
 
 const props = defineProps<{
   project: Project;
@@ -11,29 +10,59 @@ const project = props.project;
 
 <template>
   <div class="project">
-    <div class="image">
-      <img :src="getImageUrl(`illustrations/${project.image}`)" alt="project_image" />
+    <div class="image-container">
+      <NuxtImg
+        class="image"
+        :src="`/illustrations/${project.image}`"
+      />
     </div>
     <div class="content">
       <div class="header">
         <h2>{{ project.title }}</h2>
         <div class="chips">
           <div class="duration chip">
-            <span class="material-icons">schedule</span>
+            <MdiIcon
+              icon="mdiClock"
+              size="20"
+            />
             <span>{{ project.duration }}</span>
           </div>
           <div class="team chip">
-            <span class="material-icons">groups</span>
+            <MdiIcon
+              icon="mdiAccountGroup"
+              size="20"
+              v-if="project.team > 1"
+            />
+            <MdiIcon
+              icon="mdiAccount"
+              size="20"
+              v-else
+            />
             <span>{{ project.team }}</span>
           </div>
           <div class="context chip">
-            <span class="material-icons" v-if="project.context === ProjectContext.Personal">person</span>
-            <span class="material-icons" v-else-if="project.context === ProjectContext.School">school</span>
-            <span class="material-icons" v-else-if="project.context === ProjectContext.Work">work</span>
+            <MdiIcon
+              icon="mdiHome"
+              size="20"
+              v-if="project.context === ProjectContext.Personal"
+            />
+            <MdiIcon
+              icon="mdiSchool"
+              size="20"
+              v-else-if="project.context === ProjectContext.School"
+            />
+            <MdiIcon
+              icon="mdiBriefcase"
+              size="20"
+              v-else-if="project.context === ProjectContext.Work"
+            />
             <span>{{ project.context }}</span>
           </div>
           <div class="technologies chip">
-            <span class="material-icons">code</span>
+            <MdiIcon
+              icon="mdiCodeTags"
+              size="20"
+            />
             <span>{{ project.technologies.join(', ') }}</span>
           </div>
         </div>
@@ -42,14 +71,37 @@ const project = props.project;
         <p>{{ project.description }}</p>
       </div>
       <div class="footer">
-        <div class="link" v-if="project.link">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png"
-            v-if="project.link.includes('github.com')" />
-          <a :href="project.link" target="_blank" v-if="project.link.includes('github.com')">github repo</a>
-          <a :href="project.link" target="_blank" v-else>{{ project.link.replace('https://', '') }}</a>
+        <div
+          class="link"
+          v-if="project.link"
+        >
+          <NuxtImg
+            class="image"
+            src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png"
+            v-if="project.link.includes('github.com')"
+          />
+          <a
+            :href="project.link"
+            target="_blank"
+            v-if="project.link.includes('github.com')"
+            >github repo</a
+          >
+          <a
+            :href="project.link"
+            target="_blank"
+            v-else
+            >{{ project.link.replace('https://', '') }}</a
+          >
         </div>
-        <div class="context-logo" v-if="project.contextLogo">
-          <img :src="getImageUrl(`logos/${project.contextLogo}`)" alt="context_logo" />
+        <div
+          class="context-logo"
+          v-if="project.contextLogo"
+        >
+          <NuxtImg
+            class="image"
+            :src="`/logos/${project.contextLogo}`"
+            alt="context_logo"
+          />
         </div>
       </div>
     </div>
@@ -63,14 +115,14 @@ const project = props.project;
   width: 100%;
   height: 200px;
 
-  .image {
+  .image-container {
     width: 200px;
     height: 200px;
     border-radius: 24px;
     overflow: hidden;
     flex: 0 0 200px;
 
-    img {
+    .image {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -107,11 +159,6 @@ const project = props.project;
           border-radius: 8px;
           background-color: #121212;
           font-size: 0.8rem;
-
-          .material-icons {
-            font-size: 20px;
-            margin-right: 2px;
-          }
         }
       }
     }
@@ -129,7 +176,7 @@ const project = props.project;
         width: 150px;
         margin-left: auto;
 
-        img {
+        .image {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -142,7 +189,7 @@ const project = props.project;
         align-items: center;
         gap: 5px;
 
-        img {
+        .image {
           width: 20px;
           margin-right: 5px;
           filter: invert(1);

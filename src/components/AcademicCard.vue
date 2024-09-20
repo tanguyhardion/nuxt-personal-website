@@ -1,16 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { Academic } from '@/model/interfaces/academic';
-import { getImageUrl } from '@/utils/image-url';
-import { getImageColor } from '@/utils/image-color';
+import type { Academic } from '~/model/interfaces/academic';
 
 const props = defineProps<{
   academic: Academic;
 }>();
 const academic = props.academic;
 
-const backgroundColor = ref('');
-backgroundColor.value = await getImageColor(getImageUrl(`logos/${academic.school.logo}`));
+const backgroundColor = '';
 
 function formatDate(date: Date): string {
   const [year, month] = date.toISOString().split('-');
@@ -21,9 +17,17 @@ function formatDate(date: Date): string {
 
 <template>
   <div class="academic">
-    <div class="image">
-      <a :href="academic.school.link" target="_blank">
-        <img ref="school-logo" :src="getImageUrl(`logos/${academic.school.logo}`)" alt="school_logo" />
+    <div class="image-container">
+      <a
+        :href="academic.school.link"
+        target="_blank"
+      >
+        <NuxtImg
+          class="image"
+          ref="myImage"
+          :src="`/logos/${academic.school.logo}`"
+          alt="school_logo"
+        />
       </a>
     </div>
     <div class="content">
@@ -31,16 +35,30 @@ function formatDate(date: Date): string {
         <h2>{{ academic.degree }}</h2>
         <div class="chips">
           <div class="dates chip">
-            <span class="material-icons">schedule</span>
-            <span>{{ formatDate(academic.dates.start) }} - {{ formatDate(academic.dates.end) }}</span>
+            <MdiIcon
+              icon="mdiClockOutline"
+              class="icon"
+            />
+            <span
+              >{{ formatDate(academic.dates.start) }} - {{ formatDate(academic.dates.end) }}</span
+            >
           </div>
           <div class="gpa chip">
-            <span class="material-icons">leaderboard</span>
+            <MdiIcon
+              icon="mdiPoll"
+              class="icon"
+            />
             <span>{{ academic.gpa }}</span>
           </div>
-          <a :href="`https://www.google.com/maps/place/${academic.school.location}`" target="_blank">
+          <a
+            :href="`https://www.google.com/maps/place/${academic.school.location}`"
+            target="_blank"
+          >
             <div class="location chip">
-              <span class="material-icons">place</span>
+              <MdiIcon
+                icon="mdiMapMarker"
+                class="icon"
+              />
               <span>{{ academic.school.location }}</span>
             </div>
           </a>
@@ -67,10 +85,10 @@ function formatDate(date: Date): string {
   background: linear-gradient(45deg, black, v-bind(backgroundColor));
   border-radius: 24px;
 
-  .image {
+  .image-container {
     width: 300px;
 
-    img {
+    .image {
       width: 100%;
       height: 100%;
     }
@@ -112,11 +130,10 @@ function formatDate(date: Date): string {
           background-color: #121212;
           font-size: 0.8rem;
 
-          .material-icons {
+          .icon {
             font-size: 20px;
             margin-right: 2px;
           }
-
         }
 
         a {
@@ -126,7 +143,6 @@ function formatDate(date: Date): string {
     }
 
     .description {
-
       .field {
         font-size: 1.1rem;
         font-weight: 600;
@@ -138,7 +154,5 @@ function formatDate(date: Date): string {
       align-items: center;
     }
   }
-
-
 }
 </style>

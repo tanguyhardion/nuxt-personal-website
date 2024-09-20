@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { watch } from 'vue';
-import { RouterLink, useRoute } from 'vue-router';
 
-const props = defineProps<{
-  links: { name: string; path: string; color: string; active: boolean }[];
-}>();
-const links = props.links;
+const links = [
+  { name: 'Home', path: '/', color: '#dc143c', active: true },
+  { name: 'Experience', path: '/experience', color: '#f16529', active: false },
+  { name: 'Projects', path: '/projects', color: '#5ec9f8', active: false },
+  { name: 'Skills', path: '/skills', color: '#9148ff', active: false },
+  { name: 'Academics', path: '/academics', color: '#ffdd48', active: false },
+  { name: 'More', path: '/more', color: '#757678', active: false }
+];
 
 const route = useRoute();
 
@@ -28,15 +31,21 @@ function getTitle(route: string) {
   return route === 'home'
     ? 'Tanguy Hardion'
     : `Tanguy Hardion - ${route.charAt(0).toUpperCase() + route.slice(1)}`;
-}</script>
+}
+</script>
 
 <template>
   <nav>
-    <RouterLink v-for="link in links" :key="link.path" :to="link.path" :style="{ '--link-color': link.color }"
-      class="nav-link">
+    <NuxtLink
+      v-for="link in links"
+      :key="link.path"
+      :to="link.path"
+      :style="{ '--link-color': link.color }"
+      class="nav-link"
+    >
       {{ link.name }}
       <span class="underline"></span>
-    </RouterLink>
+    </NuxtLink>
   </nav>
 </template>
 

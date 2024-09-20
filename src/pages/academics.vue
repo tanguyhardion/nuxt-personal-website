@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import AcademicCard from '@/components/AcademicCard.vue';
-import { academicList } from '@/data/academic-list';
+import { academicList } from '~/data/academic-list';
 </script>
 
 <template>
   <div class="academics">
-    <AcademicCard v-for="academic in academicList" :key="academic.school.name" :academic="academic">
+    <AcademicCard
+      v-for="academic in academicList"
+      :key="academic.school.name"
+      :academic="academic"
+    >
     </AcademicCard>
   </div>
 </template>
