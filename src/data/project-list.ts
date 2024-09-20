@@ -29,7 +29,7 @@ export const projectList: Project[] = [
     title: 'TensorFlow CNN on CIFAR-100',
     description: `Training of a convolutional neural network (CNN) from scratch to classify images of the CIFAR-100 dataset.
     This project was part of a course on machine learning and deep learning using Python.`,
-    duration: '2 months',
+    duration: '3 weeks',
     team: 1,
     context: ProjectContext.School,
     contextLogo: 'utt.png',

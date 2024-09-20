@@ -7,5 +7,10 @@ export default defineNuxtConfig({
   image: {
     dir: 'assets/images'
   },
-  modules: ['@nuxt/image', 'nuxt-mdi']
+  modules: ['@nuxt/image'],
+  app: {
+    head: {
+      link: [{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }]
+    }
+  }
 });

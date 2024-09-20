@@ -35,19 +35,13 @@ function formatDate(date: Date): string {
         <h2>{{ academic.degree }}</h2>
         <div class="chips">
           <div class="dates chip">
-            <!-- <MdiIcon
-              icon="mdiClockOutline"
-              class="icon"
-            /> -->
+            <span class="material-icons">event</span>
             <span
               >{{ formatDate(academic.dates.start) }} - {{ formatDate(academic.dates.end) }}</span
             >
           </div>
           <div class="gpa chip">
-            <!-- <MdiIcon
-              icon="mdiPoll"
-              class="icon"
-            /> -->
+            <span class="material-icons">grade</span>
             <span>{{ academic.gpa }}</span>
           </div>
           <a
@@ -55,10 +49,7 @@ function formatDate(date: Date): string {
             target="_blank"
           >
             <div class="location chip">
-              <!-- <MdiIcon
-                icon="mdiMapMarker"
-                class="icon"
-              /> -->
+              <span class="material-icons">location_on</span>
               <span>{{ academic.school.location }}</span>
             </div>
           </a>

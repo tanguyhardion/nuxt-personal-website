@@ -21,48 +21,47 @@ const project = props.project;
         <h2>{{ project.title }}</h2>
         <div class="chips">
           <div class="duration chip">
-            <MdiIcon
-              icon="mdiClock"
-              size="20"
-            />
+            <span class="material-icons">timelapse</span>
             <span>{{ project.duration }}</span>
           </div>
           <div class="team chip">
-            <MdiIcon
-              icon="mdiAccountGroup"
-              size="20"
+            <span
+              class="material-icons"
               v-if="project.team > 1"
-            />
-            <MdiIcon
-              icon="mdiAccount"
-              size="20"
+            >
+              groups
+            </span>
+            <span
+              class="material-icons"
               v-else
-            />
+            >
+              person
+            </span>
             <span>{{ project.team }}</span>
           </div>
           <div class="context chip">
-            <MdiIcon
-              icon="mdiHome"
-              size="20"
+            <span
+              class="material-icons"
               v-if="project.context === ProjectContext.Personal"
-            />
-            <MdiIcon
-              icon="mdiSchool"
-              size="20"
+            >
+              home
+            </span>
+            <span
+              class="material-icons"
               v-else-if="project.context === ProjectContext.School"
-            />
-            <MdiIcon
-              icon="mdiBriefcase"
-              size="20"
+            >
+              school
+            </span>
+            <span
+              class="material-icons"
               v-else-if="project.context === ProjectContext.Work"
-            />
+            >
+              work
+            </span>
             <span>{{ project.context }}</span>
           </div>
           <div class="technologies chip">
-            <MdiIcon
-              icon="mdiCodeTags"
-              size="20"
-            />
+            <span class="material-icons">code</span>
             <span>{{ project.technologies.join(', ') }}</span>
           </div>
         </div>
@@ -159,6 +158,10 @@ const project = props.project;
           border-radius: 8px;
           background-color: #121212;
           font-size: 0.8rem;
+
+          .material-icons {
+            font-size: 20px;
+          }
         }
       }
     }
