@@ -28,7 +28,7 @@ watch(
 );
 
 function getTitle(route: string) {
-  return route === 'home'
+  return route === 'Index'
     ? 'Tanguy Hardion'
     : `Tanguy Hardion - ${route.charAt(0).toUpperCase() + route.slice(1)}`;
 }
