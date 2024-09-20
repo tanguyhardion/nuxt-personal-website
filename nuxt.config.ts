@@ -10,7 +10,15 @@ export default defineNuxtConfig({
   modules: ['@nuxt/image'],
   app: {
     head: {
-      link: [{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }]
+      link: [
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
+      ],
+      script: [{ async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-60YRWFVFZD' }, {
+        innerHTML: `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-60YRWFVFZD');`
+      }]
     }
   }
 });
