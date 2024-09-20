@@ -7,6 +7,5 @@ export default defineNuxtConfig({
   image: {
     dir: 'assets/images'
   },
-  modules: ['@nuxt/image', 'nuxt-mdi'],
-  ssr: false
+  modules: ['@nuxt/image', 'nuxt-mdi']
 });
