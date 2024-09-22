@@ -21,14 +21,13 @@ watch(
 
     if (newRoute) {
       const routeString = newRoute.toString();
-
       document.title = getTitle(routeString);
     }
   }
 );
 
 function getTitle(route: string) {
-  return route === 'Index'
+  return route === 'index'
     ? 'Tanguy Hardion'
     : `Tanguy Hardion - ${route.charAt(0).toUpperCase() + route.slice(1)}`;
 }

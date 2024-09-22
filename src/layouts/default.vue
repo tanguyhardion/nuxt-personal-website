@@ -2,6 +2,8 @@
 
 <template>
   <div>
+    <NuxtRouteAnnouncer />
+
     <div class="banner">Work in progress.</div>
 
     <header>
