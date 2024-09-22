@@ -20,6 +20,6 @@ import { academicList } from '~/data/academic-list';
   flex-direction: column;
   align-items: center;
   margin: auto;
-  gap: 20px;
+  gap: 32px;
 }
 </style>

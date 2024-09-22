@@ -8,7 +8,7 @@ export const projectList: Project[] = [
     than a traditional one or a LinkedIn profile (although you can find me there too). It's also more fun to make!`,
     duration: '2 months',
     team: 1,
-    technologies: ['Vue.js', 'GitHub Pages'],
+    technologies: ['Vue.js (Nuxt)', 'GitHub Pages'],
     context: ProjectContext.Personal,
     image: 'website.png',
     link: 'https://github.com/tanguyhardion/tanguyhardion.github.io'
@@ -39,16 +39,15 @@ export const projectList: Project[] = [
   },
   {
     title: 'Visualizer',
-    description: `Development of a dependencies graph to map solutions and their respective versions,
-    enhancing project management and compatibility tracking.
-    Restructured the delivery process through custom Maven plugins to streamline deployment.
-    Conducted training and quantification of the Llama2 language model for a proof of concept using PyTorch and HuggingFace.
-    Integrated RPM file generation into both technical and business projects, improving overall automation and workflow efficiency.`,
+    description: `Development of a dependencies graph to map software solutions and their respective versions,
+    for better compatibility tracking.
+    Restructured the delivery process through custom Maven plugins and RPM files generation to streamline and automate deployment.
+    Training and quantification of the Llama2 large language model (LLM) for a proof of concept using PyTorch and HuggingFace.`,
     duration: '6 months',
     team: 1,
     context: ProjectContext.Work,
     contextLogo: 'cpage.png',
-    technologies: ['Java', 'RegEx', 'Angular', 'SpringBoot', 'Oracle', 'Sigma.js'],
+    technologies: ['Java', 'Maven', 'Angular', 'Sigma.js', 'SpringBoot', 'Oracle'],
     image: 'graph.png'
   }
 ];

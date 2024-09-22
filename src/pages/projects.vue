@@ -38,7 +38,7 @@ import { projectList } from '~/data/project-list';
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 32px;
   margin: auto;
 }
 </style>

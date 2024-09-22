@@ -49,7 +49,7 @@ onMounted(async () => {
             >
               person
             </span>
-            <span>{{ project.team }}</span>
+            <span>{{ project.team === 1 ? 'Solo' : `Team of ${project.team}` }}</span>
           </div>
           <div class="context chip">
             <span
