@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="profile-info">
@@ -9,6 +8,6 @@
 
 <style lang="scss" scoped>
 .profile-info {
-  margin-top: 150px;
+  margin-top: 50px;
 }
 </style>

@@ -19,7 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: bold;
   color: #757678;
   background: #151515;

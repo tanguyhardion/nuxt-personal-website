@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { Vue3Lottie } from 'vue3-lottie';
+import animation from '~/data/animation.json';
 import dayjs from 'dayjs';
 
-let age = ref('');
+const age = ref('');
 
 onMounted(() => {
   setInterval(() => {
-    const result = dayjs().diff(dayjs(1044801960000), 'year', true);
+    const result = dayjs().diff(dayjs(1047423600000), 'year', true);
     age.value = result.toString().substring(0, 12);
   }, 50);
 });
@@ -31,7 +33,14 @@ onMounted(() => {
       <b>February 2025</b>.
     </p>
   </div>
-  <div></div>
+  <div>
+    <client-only>
+      <Vue3Lottie
+        :animationData="animation"
+        class="lottie"
+      />
+    </client-only>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -39,6 +48,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 20px;
   gap: 30px;
 
   .name {
@@ -52,6 +62,21 @@ onMounted(() => {
     b {
       font-weight: 700;
     }
+  }
+}
+
+.lottie {
+  overflow: hidden;
+  height: calc(80vh - 220px);
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 </style>
