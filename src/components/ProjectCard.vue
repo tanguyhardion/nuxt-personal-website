@@ -6,13 +6,25 @@ const props = defineProps<{
   project: Project;
 }>();
 const project = props.project;
+
+const backgroundColor = ref('#000');
+const isVisible = ref(false);
+
+onMounted(async () => {
+  backgroundColor.value = (await getImageColor(`image-${project.image}`)) || '#000';
+  isVisible.value = true;
+});
 </script>
 
 <template>
-  <div class="project">
+  <div
+    class="project"
+    :class="{ visible: isVisible }"
+  >
     <div class="image-container">
       <NuxtImg
         class="image"
+        :id="`image-${project.image}`"
         :src="`/illustrations/${project.image}`"
       />
     </div>
@@ -109,10 +121,30 @@ const project = props.project;
 
 <style lang="scss" scoped>
 .project {
+  position: relative;
   display: flex;
   gap: 20px;
   width: 100%;
   height: 200px;
+  padding: 0 16px 0 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, black, v-bind(backgroundColor));
+    z-index: -1;
+    border-radius: 24px;
+    opacity: 0;
+    transition: opacity 1.5s;
+  }
+
+  &.visible::before {
+    opacity: 0.7;
+  }
 
   .image-container {
     width: 200px;
@@ -132,6 +164,7 @@ const project = props.project;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding: 8px 0;
     width: 100%;
     height: 100%;
 
@@ -156,7 +189,7 @@ const project = props.project;
           gap: 5px;
           padding: 4px 8px;
           border-radius: 8px;
-          background-color: #121212;
+          background: rgba(255, 255, 255, 0.1);
           font-size: 0.8rem;
 
           .material-icons {

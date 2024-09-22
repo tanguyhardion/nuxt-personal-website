@@ -6,7 +6,13 @@ const props = defineProps<{
 }>();
 const academic = props.academic;
 
-const backgroundColor = '';
+const backgroundColor = ref('#000');
+const isVisible = ref(false);
+
+onMounted(async () => {
+  backgroundColor.value = (await getImageColor(`image-${academic.school.logo}`)) || '#000';
+  isVisible.value = true;
+});
 
 function formatDate(date: Date): string {
   const [year, month] = date.toISOString().split('-');
@@ -16,7 +22,10 @@ function formatDate(date: Date): string {
 </script>
 
 <template>
-  <div class="academic">
+  <div
+    class="academic"
+    :class="{ visible: isVisible }"
+  >
     <div class="image-container">
       <a
         :href="academic.school.link"
@@ -24,7 +33,7 @@ function formatDate(date: Date): string {
       >
         <NuxtImg
           class="image"
-          ref="myImage"
+          :id="`image-${academic.school.logo}`"
           :src="`/logos/${academic.school.logo}`"
           alt="school_logo"
         />
@@ -67,14 +76,32 @@ function formatDate(date: Date): string {
 
 <style lang="scss" scoped>
 .academic {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 30px;
   width: 100%;
   padding: 0 16px;
   height: 150px;
-  background: linear-gradient(45deg, black, v-bind(backgroundColor));
   border-radius: 24px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, black, v-bind(backgroundColor));
+    z-index: -1;
+    border-radius: 24px;
+    opacity: 0;
+    transition: opacity 1.5s;
+  }
+
+  &.visible::before {
+    opacity: 0.7;
+  }
 
   .image-container {
     width: 300px;
@@ -118,7 +145,7 @@ function formatDate(date: Date): string {
           gap: 5px;
           padding: 4px 8px;
           border-radius: 8px;
-          background-color: #121212;
+          background: rgba(255, 255, 255, 0.1);
           font-size: 0.8rem;
 
           .icon {

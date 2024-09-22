@@ -1,7 +1,13 @@
 import { FastAverageColor } from 'fast-average-color';
 
-export default async function (imagePath: string): Promise<string> {
-  const fac = new FastAverageColor();
-  const color = await fac.getColorAsync(imagePath);
-  return color.rgba;
+export default async function (imageElementId: string): Promise<string | undefined> {
+  const imageElement = document.getElementById(imageElementId) as HTMLImageElement;
+
+  if (imageElement) {
+    const fac = new FastAverageColor();
+    const result = await fac.getColorAsync(imageElement);
+    return result.rgba;
+  } else {
+    return undefined;
+  }
 }
