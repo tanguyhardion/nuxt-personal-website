@@ -1,4 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useSeoMeta({
+  description: `I'm looking for a 6-month end-of-studies internship abroad starting in February 2025.
+  I'm a computer engineering student, majoring in AI and Data Science at UTC.`,
+  ogDescription: `I'm looking for a 6-month end-of-studies internship abroad starting in February 2025.
+  I'm a computer engineering student, majoring in AI and Data Science at UTC.`,
+  ogImage: 'https://i.imgur.com/ne4z3Jr.png'
+});
+</script>
 
 <template>
   <div>
