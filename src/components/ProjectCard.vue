@@ -145,7 +145,7 @@ onMounted(async () => {
   }
 
   &.visible::before {
-    opacity: 0.7;
+    opacity: 0.5;
   }
 
   .image-container {

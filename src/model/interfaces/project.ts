@@ -1,4 +1,4 @@
-import type { ProjectContext } from "@/model/enums/project-context";
+import type { ProjectContext } from "../enums/project-context";
 
 export interface Project {
   title: string;

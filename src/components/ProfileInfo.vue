@@ -58,10 +58,6 @@ onMounted(() => {
 
   .info {
     font-size: 1.5rem;
-
-    b {
-      font-weight: 700;
-    }
   }
 }
 

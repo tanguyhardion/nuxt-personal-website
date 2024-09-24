@@ -1,4 +1,4 @@
-import type { Academic } from '@/model/interfaces/academic';
+import type { Academic } from "~/model/interfaces/academic";
 
 export const academicList: Academic[] = [
   {
@@ -38,7 +38,7 @@ export const academicList: Academic[] = [
       location: 'Dijon, France',
       link: 'https://iutdijon.u-bourgogne.fr/',
     },
-    degree: 'DUT (2-year technical degree)',
+    degree: 'DUT (associate’s degree equivalent)',
     field: 'Computer Science',
     gpa: 'Top 10 out of 100',
     dates: {

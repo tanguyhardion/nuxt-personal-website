@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import type { Academic } from '~/model/interfaces/academic';
+import type { Experience } from '~/model/interfaces/experience';
 
 const props = defineProps<{
-  academic: Academic;
+  experience: Experience;
 }>();
-const academic = props.academic;
+const experience = props.experience;
 
 const backgroundColor = ref('#000');
 const isVisible = ref(false);
 
 onMounted(async () => {
-  backgroundColor.value = (await getImageColor(`image-${academic.school.logo}`)) || '#000';
+  backgroundColor.value = (await getImageColor(`image-${experience.company.logo}`)) || '#000';
   isVisible.value = true;
 });
 </script>
@@ -22,49 +22,55 @@ onMounted(async () => {
   >
     <div class="image-container">
       <a
-        :href="academic.school.link"
+        :href="experience.company.link"
         target="_blank"
         rel="noopener noreferrer"
       >
         <NuxtImg
           class="image"
-          :id="`image-${academic.school.logo}`"
-          :src="`/logos/${academic.school.logo}`"
-          alt="school_logo"
+          :id="`image-${experience.company.logo}`"
+          :src="`/logos/${experience.company.logo}`"
+          alt="company_logo"
         />
       </a>
     </div>
     <div class="content">
       <div class="header">
-        <h2>{{ academic.degree }}</h2>
+        <h2>{{ experience.position }}</h2>
         <div class="chips">
           <div class="dates chip">
             <span class="material-icons">event</span>
             <span
-              >{{ formatDate(academic.dates.start) }} - {{ formatDate(academic.dates.end) }}</span
+              >{{ formatDate(experience.dates.start) }} -
+              {{ formatDate(experience.dates.end) }}</span
             >
           </div>
-          <div class="gpa chip">
-            <span class="material-icons">grade</span>
-            <span>{{ academic.gpa }}</span>
+          <div class="job-type chip">
+            <span class="material-icons">description</span>
+            <span>{{ experience.jobType }}</span>
           </div>
           <a
-            :href="`https://www.google.com/maps/place/${academic.school.location}`"
+            :href="`https://www.google.com/maps/place/${experience.company.location}`"
             target="_blank"
             rel="noopener noreferrer"
           >
             <div class="location chip">
               <span class="material-icons">location_on</span>
-              <span>{{ academic.school.location }}</span>
+              <span>{{ experience.company.location }}</span>
             </div>
           </a>
         </div>
       </div>
       <div class="description">
-        <p class="field">{{ academic.field }}</p>
+        <p>{{ experience.description }}</p>
+        <p>
+          <span v-if="experience.projects.length > 1">Projects </span>
+          <span v-else>Project </span>
+          that I worked on: <b>{{ experience.projects.join(', ') }}</b>
+        </p>
       </div>
       <div class="footer">
-        <p class="school-name">{{ academic.school.name }}</p>
+        <p class="company-name">{{ experience.company.name }}</p>
       </div>
     </div>
   </div>
@@ -115,7 +121,7 @@ onMounted(async () => {
     width: 100%;
     height: 100%;
 
-    .school-name {
+    .company-name {
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -143,6 +149,7 @@ onMounted(async () => {
           border-radius: 8px;
           background: rgba(255, 255, 255, 0.1);
           font-size: 0.8rem;
+          width: max-content;
 
           .icon {
             font-size: 20px;
