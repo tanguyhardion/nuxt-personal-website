@@ -94,12 +94,14 @@ onMounted(async () => {
           <a
             :href="project.link"
             target="_blank"
+            rel="noopener noreferrer"
             v-if="project.link.includes('github.com')"
             >github repo</a
           >
           <a
             :href="project.link"
             target="_blank"
+            rel="noopener noreferrer"
             v-else
             >{{ project.link.replace('https://', '') }}</a
           >
@@ -125,7 +127,7 @@ onMounted(async () => {
   display: flex;
   gap: 20px;
   width: 100%;
-  height: 200px;
+  height: 250px;
   padding: 0 16px 0 0;
 
   &::before {
@@ -147,11 +149,11 @@ onMounted(async () => {
   }
 
   .image-container {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border-radius: 24px;
     overflow: hidden;
-    flex: 0 0 200px;
+    flex: 0 0 250px;
 
     .image {
       width: 100%;

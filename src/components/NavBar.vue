@@ -34,46 +34,101 @@ function getTitle(route: string) {
 </script>
 
 <template>
-  <nav>
-    <NuxtLink
-      v-for="link in links"
-      :key="link.path"
-      :to="link.path"
-      :style="{ '--link-color': link.color }"
-      class="nav-link"
-    >
-      {{ link.name }}
-      <span class="underline"></span>
-    </NuxtLink>
-  </nav>
+  <div class="app-bar">
+    <nav>
+      <NuxtLink
+        v-for="link in links"
+        :key="link.path"
+        :to="link.path"
+        :style="{ '--link-color': link.color }"
+        class="nav-link"
+      >
+        {{ link.name }}
+        <span class="underline"></span>
+      </NuxtLink>
+    </nav>
+    <div class="socials">
+      <a
+        href="https://linkedin.com/in/tanguy-hardion"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <NuxtImg
+          class="social linkedin"
+          src="/icons/linkedin.png"
+        />
+      </a>
+      <a
+        href="https://github.com/tanguyhardion"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <NuxtImg
+          class="social github"
+          src="/icons/github.png"
+        />
+      </a>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-nav {
+.app-bar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px;
 
-  .nav-link {
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
+  nav {
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
 
-    .underline {
-      display: block;
-      height: 2px;
-      margin: 0 auto;
-      width: 0;
-      transition: width 0.4s ease-out;
-      background: var(--foreground-default);
-    }
-
-    &.router-link-active,
-    &:hover {
-      color: var(--link-color);
+    .nav-link {
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
 
       .underline {
-        width: 100%;
-        background: var(--link-color);
+        display: block;
+        height: 2px;
+        margin: 0 auto;
+        width: 0;
+        transition: width 0.4s ease-out;
+        background: var(--foreground-default);
+      }
+
+      &.router-link-active,
+      &:hover {
+        color: var(--link-color);
+
+        .underline {
+          width: 100%;
+          background: var(--link-color);
+        }
+      }
+    }
+  }
+
+  .socials {
+    display: flex;
+    gap: 16px;
+
+    .social {
+      width: 32px;
+      height: 32px;
+      transition: filter 0.4s;
+
+      &.linkedin {
+        filter: saturate(0);
+
+        &:hover {
+          filter: saturate(1);
+        }
+      }
+
+      &.github:hover {
+        filter: brightness(0) invert(1);
       }
     }
   }

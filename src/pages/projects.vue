@@ -18,6 +18,7 @@ import { projectList } from '~/data/project-list';
       <a
         href="https://github.com/tanguyhardion"
         target="_blank"
+        rel="noopener noreferrer"
         >GitHub</a
       >
       .

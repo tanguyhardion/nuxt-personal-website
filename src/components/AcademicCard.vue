@@ -30,6 +30,7 @@ function formatDate(date: Date): string {
       <a
         :href="academic.school.link"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <NuxtImg
           class="image"
@@ -56,6 +57,7 @@ function formatDate(date: Date): string {
           <a
             :href="`https://www.google.com/maps/place/${academic.school.location}`"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <div class="location chip">
               <span class="material-icons">location_on</span>

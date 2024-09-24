@@ -37,9 +37,7 @@ useSeoMeta({
 }
 
 header {
-  width: 600px;
-  padding: 16px;
-  margin-left: auto;
+  width: 100%;
 }
 
 main {
