@@ -11,6 +11,7 @@ const links = [
 ];
 
 const route = useRoute();
+const isMenuOpen = ref(false);
 
 watch(
   () => route.name,
@@ -31,17 +32,30 @@ function getTitle(route: string) {
     ? 'Tanguy Hardion'
     : `Tanguy Hardion - ${route.charAt(0).toUpperCase() + route.slice(1)}`;
 }
+
+function toggleMenu() {
+  isMenuOpen.value = !isMenuOpen.value;
+}
 </script>
 
 <template>
   <div class="app-bar">
-    <nav>
+    <div
+      class="menu-toggle"
+      @click="toggleMenu"
+    >
+      <span :class="{ open: isMenuOpen }"></span>
+      <span :class="{ open: isMenuOpen }"></span>
+      <span :class="{ open: isMenuOpen }"></span>
+    </div>
+    <nav :class="{ 'menu-open': isMenuOpen }">
       <NuxtLink
         v-for="link in links"
         :key="link.path"
         :to="link.path"
         :style="{ '--link-color': link.color }"
         class="nav-link"
+        @click="isMenuOpen = false"
       >
         {{ link.name }}
         <span class="underline"></span>
@@ -79,6 +93,53 @@ function getTitle(route: string) {
   width: 100%;
   padding: 16px;
 
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+
+    span {
+      background: white;
+      width: 100%;
+      height: 3px;
+      border-radius: 5px;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.5s;
+
+      &:nth-child(1) {
+        transform: translate(-50%, -7px);
+
+        &.open {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+
+      &:nth-child(2) {
+        transform: translate(-50%, 0);
+
+        &.open {
+          width: 0;
+        }
+      }
+
+      &:nth-child(3) {
+        transform: translate(-50%, 7px);
+
+        &.open {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+      }
+    }
+  }
+
   nav {
     display: flex;
     justify-content: space-around;
@@ -108,6 +169,12 @@ function getTitle(route: string) {
         }
       }
     }
+
+    &.menu-open {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
   }
 
   .socials {
@@ -130,6 +197,28 @@ function getTitle(route: string) {
       &.github:hover {
         filter: brightness(0) invert(1);
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex !important;
+  }
+
+  nav {
+    display: none !important;
+
+    &.menu-open {
+      display: flex !important;
+      width: 50vw;
+      position: absolute;
+      left: 50px;
+      flex-direction: column;
+      background: var(--background-default);
+      gap: 8px;
+      z-index: 1;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
   }
 }

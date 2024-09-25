@@ -15,7 +15,7 @@ import { experienceList } from '~/data/experience-list';
 
 <style lang="scss" scoped>
 .experiences {
-  width: 80%;
+  width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: center;

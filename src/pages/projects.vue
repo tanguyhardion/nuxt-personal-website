@@ -35,7 +35,7 @@ import { projectList } from '~/data/project-list';
 }
 
 .projects {
-  width: 80%;
+  width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: center;

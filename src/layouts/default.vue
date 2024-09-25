@@ -41,6 +41,6 @@ header {
 }
 
 main {
-  margin: 60px 20px 0 20px;
+  margin: 60px 20px 20px 20px;
 }
 </style>

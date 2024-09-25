@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Vue3Lottie } from 'vue3-lottie';
-import animation from '~/data/animation.json';
+import animation from '~/assets/images/lottie/animation.json';
 import dayjs from 'dayjs';
 
 const age = ref('');
@@ -63,8 +63,22 @@ onMounted(() => {
 
 .lottie {
   overflow: hidden;
-  height: calc(80vh - 220px);
+  width: 100%;
+  max-width: 600px;
+  height: fit-content;
   animation: fadeIn 1s;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    .name {
+      font-size: 3.75rem;
+    }
+
+    .info {
+      font-size: 1.25rem;
+    }
+  }
 }
 
 @keyframes fadeIn {
