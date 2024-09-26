@@ -61,10 +61,10 @@ onMounted(async () => {
         </div>
       </div>
       <div class="description">
-        <p class="field">{{ academic.field }}</p>
+        {{ academic.field }}
       </div>
       <div class="footer">
-        <p class="school-name">{{ academic.school.name }}</p>
+        <p class="name">{{ academic.school.name }}</p>
       </div>
     </div>
   </div>
@@ -72,27 +72,27 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .academic {
-  position: relative;
   display: flex;
+  position: relative;
   align-items: center;
   gap: 30px;
-  width: 100%;
-  padding: 0 16px;
-  height: 150px;
   border-radius: 24px;
+  padding: 24px;
+  width: 100%;
+  min-height: 150px;
 
   &::before {
-    content: '';
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 1.5s;
+    border-radius: 24px;
+    background: linear-gradient(45deg, black, v-bind(backgroundColor));
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, black, v-bind(backgroundColor));
-    z-index: -1;
-    border-radius: 24px;
-    opacity: 0;
-    transition: opacity 1.5s;
+    content: '';
   }
 
   &.visible::before {
@@ -111,43 +111,36 @@ onMounted(async () => {
   .content {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    gap: 16px;
     width: 100%;
     height: 100%;
 
-    .school-name {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
     .header {
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: space-between;
+      align-items: center;
+      gap: 10px;
       width: 100%;
 
       h2 {
-        font-size: 1.5rem;
         font-weight: 700;
+        font-size: 1.5rem;
       }
 
       .chips {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
 
         .chip {
           display: flex;
           align-items: center;
           gap: 5px;
-          padding: 4px 8px;
           border-radius: 8px;
           background: rgba(255, 255, 255, 0.1);
+          padding: 4px 8px;
           font-size: 0.8rem;
-
-          .icon {
-            font-size: 20px;
-            margin-right: 2px;
-          }
         }
 
         a {
@@ -157,15 +150,16 @@ onMounted(async () => {
     }
 
     .description {
-      .field {
-        font-size: 1.1rem;
-        font-weight: 600;
-      }
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-align: justify;
     }
 
     .footer {
-      display: flex;
-      align-items: center;
+      .name {
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
     }
   }
 }
@@ -173,9 +167,8 @@ onMounted(async () => {
 @media (max-width: 1024px) {
   .academic {
     flex-direction: column;
-    height: auto;
-    padding: 20px;
     gap: 20px;
+    padding: 20px;
 
     .image-container {
       width: 100%;
@@ -188,23 +181,10 @@ onMounted(async () => {
       .header {
         flex-direction: column;
         gap: 24px;
-
-        h2 {
-          font-size: 1.2rem;
-        }
-
-        .chips {
-          flex-wrap: wrap;
-          gap: 5px;
-        }
       }
 
       .description {
         font-size: 0.9rem;
-      }
-
-      .footer {
-        margin-top: 10px;
       }
     }
   }
@@ -212,8 +192,8 @@ onMounted(async () => {
 
 @media (max-width: 480px) {
   .academic {
-    padding: 10px;
     gap: 10px;
+    padding: 10px;
 
     .image-container {
       width: 100%;
@@ -222,12 +202,11 @@ onMounted(async () => {
 
     .content {
       .header h2 {
-        font-size: 1rem;
+        font-size: 1.3rem;
       }
 
       .chips {
-        flex-direction: column;
-        gap: 5px;
+        gap: 4px !important;
 
         .chip {
           font-size: 0.6rem;
@@ -235,7 +214,7 @@ onMounted(async () => {
       }
 
       .description {
-        font-size: 0.8rem;
+        font-size: 1rem;
       }
     }
   }

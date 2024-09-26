@@ -15,7 +15,7 @@ import { academicList } from '~/data/academic-list';
 
 <style lang="scss" scoped>
 .academics {
-  width: 85vw;
+  width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: center;

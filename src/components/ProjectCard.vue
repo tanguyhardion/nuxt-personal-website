@@ -79,7 +79,7 @@ onMounted(async () => {
         </div>
       </div>
       <div class="description">
-        <p>{{ project.description }}</p>
+        {{ project.description }}
       </div>
       <div class="footer">
         <div
@@ -88,7 +88,7 @@ onMounted(async () => {
         >
           <NuxtImg
             class="image"
-            src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png"
+            src="/icons/github.png"
             v-if="project.link.includes('github.com')"
           />
           <a
@@ -123,25 +123,26 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .project {
-  position: relative;
   display: flex;
-  gap: 20px;
+  position: relative;
+  align-items: center;
+  gap: 6px;
+  border-radius: 24px;
   width: 100%;
-  height: 250px;
-  padding: 0 16px 0 0;
+  min-height: 150px;
 
   &::before {
-    content: '';
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 1.5s;
+    border-radius: 24px;
+    background: linear-gradient(45deg, black, v-bind(backgroundColor));
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, black, v-bind(backgroundColor));
-    z-index: -1;
-    border-radius: 24px;
-    opacity: 0;
-    transition: opacity 1.5s;
+    content: '';
   }
 
   &.visible::before {
@@ -149,15 +150,15 @@ onMounted(async () => {
   }
 
   .image-container {
+    display: flex;  
     width: 250px;
     height: 250px;
-    border-radius: 24px;
-    overflow: hidden;
     flex: 0 0 250px;
-
+    
     .image {
       width: 100%;
       height: 100%;
+      border-radius: 24px;
       object-fit: cover;
     }
   }
@@ -165,38 +166,37 @@ onMounted(async () => {
   .content {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 8px 0;
+    gap: 16px;
     width: 100%;
     height: 100%;
+    padding: 24px;
 
     .header {
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: space-between;
+      align-items: center;
+      gap: 10px;
       width: 100%;
 
       h2 {
-        font-size: 1.5rem;
         font-weight: 700;
+        font-size: 1.5rem;
       }
 
       .chips {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
 
         .chip {
           display: flex;
           align-items: center;
           gap: 5px;
-          padding: 4px 8px;
           border-radius: 8px;
           background: rgba(255, 255, 255, 0.1);
+          padding: 4px 8px;
           font-size: 0.8rem;
-
-          .material-icons {
-            font-size: 20px;
-          }
         }
       }
     }
@@ -230,8 +230,61 @@ onMounted(async () => {
         .image {
           width: 20px;
           margin-right: 5px;
-          filter: invert(1);
+          filter: brightness(100);
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .project {
+    flex-direction: column;
+    gap: 20px;
+
+    .image-container {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .content {
+      gap: 16px;
+
+      .header {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .description {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .project {
+    gap: 10px;
+
+    .image-container {
+      width: 100%;
+    }
+
+    .content {
+      .header h2 {
+        font-size: 1.3rem;
+      }
+
+      .chips {
+        gap: 4px !important;
+        
+        .chip {
+          font-size: 0.6rem;
+        }
+      }
+
+      .description {
+        font-size: 1rem;
       }
     }
   }
