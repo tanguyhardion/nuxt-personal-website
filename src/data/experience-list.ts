@@ -41,7 +41,7 @@ export const experienceList: Experience[] = [
       location: 'Saint-Apollinaire, France',
       link: 'https://aprr.fr/'
     },
-    position: 'Software Engineer Intern (Service Installation et Support Systèmes',
+    position: 'Software Engineer Intern',
     jobType: JobType.Internship,
     description: `Final year DUT (associate's degree) internship in the department that manages
     the installation and support of the systems used by the company.`,

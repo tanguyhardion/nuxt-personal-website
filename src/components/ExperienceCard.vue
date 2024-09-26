@@ -17,7 +17,7 @@ onMounted(async () => {
 
 <template>
   <div
-    class="academic"
+    class="experience"
     :class="{ visible: isVisible }"
   >
     <div class="image-container">
@@ -76,7 +76,7 @@ onMounted(async () => {
   </div>
 </template>
 <style lang="scss" scoped>
-.academic {
+.experience {
   position: relative;
   display: flex;
   align-items: center;
@@ -176,8 +176,8 @@ onMounted(async () => {
   }
 }
 
-@media (max-width: 768px) {
-  .academic {
+@media (max-width: 1024px) {
+  .experience {
     flex-direction: column;
     height: auto;
     padding: 20px;
@@ -217,7 +217,7 @@ onMounted(async () => {
 }
 
 @media (max-width: 480px) {
-  .academic {
+  .experience {
     padding: 10px;
     gap: 10px;
 

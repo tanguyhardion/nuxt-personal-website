@@ -169,4 +169,75 @@ onMounted(async () => {
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .academic {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 20px;
+
+    .image-container {
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .content {
+      gap: 16px;
+
+      .header {
+        flex-direction: column;
+        gap: 24px;
+
+        h2 {
+          font-size: 1.2rem;
+        }
+
+        .chips {
+          flex-wrap: wrap;
+          gap: 5px;
+        }
+      }
+
+      .description {
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .academic {
+    padding: 10px;
+    gap: 10px;
+
+    .image-container {
+      width: 100%;
+      max-width: 150px;
+    }
+
+    .content {
+      .header h2 {
+        font-size: 1rem;
+      }
+
+      .chips {
+        flex-direction: column;
+        gap: 5px;
+
+        .chip {
+          font-size: 0.6rem;
+        }
+      }
+
+      .description {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
 </style>
