@@ -29,7 +29,10 @@ export const projectList: Project[] = [
   {
     title: 'CNN on CIFAR-100',
     description: `Training of a convolutional neural network (CNN) from scratch to classify images of the CIFAR-100 dataset.
-      This project was part of a course on machine learning and deep learning using Python.`,
+    Preprocessed and engineered the dataset by normalizing the images and converting them to TensorFlow datasets.
+    Experimented with different architectures and hyperparameters to improve the model's accuracy.
+    Finished by evaluating the model's performance using various metrics and visualizations.
+    This project was part of a course on machine learning and deep learning using Python.`,
     duration: '2 weeks',
     team: 1,
     context: ProjectContext.School,
@@ -40,8 +43,7 @@ export const projectList: Project[] = [
   },
   {
     title: 'Llama 2 fine-tuning',
-    description: `Fine-tuning and quantification of the 7B-parameter Llama2 large language model (LLM),
-      for a proof of concept during an internship.`,
+    description: `Fine-tuning and quantification of the 7B-parameter Llama2 large language model (LLM), for a proof of concept during an internship.`,
     duration: '1 month',
     team: 1,
     context: ProjectContext.Work,

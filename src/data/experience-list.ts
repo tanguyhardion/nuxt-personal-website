@@ -38,12 +38,13 @@ export const experienceList: Experience[] = [
     company: {
       name: 'Autoroutes Paris-Rhin-Rhône (APRR)',
       logo: 'aprr.png',
-      location: 'Dijon, France',
-      link: 'https://www.cpage.fr/'
+      location: 'Saint-Apollinaire, France',
+      link: 'https://aprr.fr/'
     },
-    position: 'Software Engineer Intern',
+    position: 'Software Engineer Intern (Service Installation et Support Systèmes',
     jobType: JobType.Internship,
-    description: `Final internship for my DUT (associate's degree) at CPage, a company that develops software for public health institutions.`,
+    description: `Final year DUT (associate's degree) internship in the department that manages
+    the installation and support of the systems used by the company.`,
     projects: ['Connect All Devices', 'SQLite Encrypter'],
     dates: {
       start: new Date('2024-02-01'),
