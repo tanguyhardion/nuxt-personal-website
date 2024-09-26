@@ -6,8 +6,4 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-.profile-info {
-  margin-top: 50px;
-}
-</style>
+<style lang="scss" scoped></style>
