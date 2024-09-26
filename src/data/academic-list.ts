@@ -24,7 +24,7 @@ export const academicList: Academic[] = [
       link: 'https://utt.fr/',
     },
     degree: "Engineer's degree",
-    field: 'Computer Science and Information Systems',
+    field: 'Computer Science and Information Systems, Data Science track',
     gpa: 'GPA: 3.67/4.0',
     dates: {
       start: new Date('2022-09-01'),

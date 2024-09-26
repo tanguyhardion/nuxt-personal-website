@@ -27,8 +27,8 @@ onMounted(() => {
       <b> UTC</b>.
     </p>
     <p class="info">
-      Currently, I'm looking for a
-      <b> 6-month internship abroad </b>
+      Currently, I'm looking for an
+      <b> end-of-studies 6-month internship abroad </b>
       starting in
       <b>February 2025</b>.
     </p>
