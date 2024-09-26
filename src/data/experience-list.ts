@@ -27,7 +27,7 @@ export const experienceList: Experience[] = [
     },
     position: 'Software Engineer Intern',
     jobType: JobType.Internship,
-    description: `Mid-engineering studies internship at CPage, a company that develops software for public health institutions.`,
+    description: `Mid-engineering degree internship at CPage, a company that develops software for public health institutions.`,
     projects: ['Visualizer', 'Llama 2 fine-tuning'],
     dates: {
       start: new Date('2024-02-01'),
