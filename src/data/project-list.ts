@@ -43,12 +43,18 @@ export const projectList: Project[] = [
   },
   {
     title: 'Llama 2 fine-tuning',
-    description: `Fine-tuning and quantification of the 7B-parameter Llama2 large language model (LLM), for a proof of concept during an internship.`,
+    description: `Fine-tuning of the 7B-parameter large language model (LLM) Llama 2.
+      Prepared a dataset to train the model on extracting specific text from PDF files.
+      Tuned the hyperparameters to make the model as accurate as possible.
+      Experimented with different architectures and hyperparameters to improve the model's accuracy.
+      Tested the model on various PDF files and evaluated its performance.
+      This project, part of my internship at CPage, was a proof of concept to demonstrate the purpose
+      of modern AI models in the company's software solutions.`,
     duration: '1 month',
     team: 1,
     context: ProjectContext.Work,
     contextLogo: 'cpage.png',
-    technologies: ['PyTorch', 'HuggingFace'],
+    technologies: ['PyTorch', 'HuggingFace', 'Meta AI'],
     image: 'llama2.jpg'
   },
   {

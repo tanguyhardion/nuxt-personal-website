@@ -9,7 +9,7 @@ export const experienceList: Experience[] = [
       location: 'Dijon, France',
       link: 'https://www.cpage.fr/'
     },
-    position: 'Lead Software Engineer',
+    position: 'Junior Software Engineer',
     jobType: JobType.FixedTerm,
     description: 'Summer job that followed my previous internship.',
     projects: ['CPage Map'],
@@ -43,7 +43,7 @@ export const experienceList: Experience[] = [
     },
     position: 'Software Developer Intern',
     jobType: JobType.Internship,
-    description: `Final year DUT (associate's degree) internship in the department that manages
+    description: `Final year DUT (associate degree) internship in the department that manages
     the installation and support of the systems used by the company.`,
     projects: ['Connect All Devices', 'SQLite Encrypter'],
     dates: {

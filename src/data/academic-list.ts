@@ -38,7 +38,7 @@ export const academicList: Academic[] = [
       location: 'Dijon, France',
       link: 'https://iutdijon.u-bourgogne.fr/',
     },
-    degree: 'DUT (associate’s degree equivalent)',
+    degree: 'DUT (⇔ to an associate degree)',
     field: 'Computer Science',
     gpa: 'Top 10 out of 100',
     dates: {
