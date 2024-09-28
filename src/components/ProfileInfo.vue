@@ -38,6 +38,7 @@ onMounted(() => {
       <Vue3Lottie
         :animationData="animation"
         class="lottie"
+        :renderer="'canvas'"
       />
     </client-only>
   </div>

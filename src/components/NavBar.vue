@@ -27,6 +27,14 @@ watch(
   }
 );
 
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
 function getTitle(route: string) {
   return route === 'index'
     ? 'Tanguy Hardion'
@@ -35,6 +43,12 @@ function getTitle(route: string) {
 
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value;
+}
+
+function handleResize() {
+  if (window.innerWidth > 768 && isMenuOpen.value) {
+    isMenuOpen.value = false;
+  }
 }
 </script>
 
@@ -90,29 +104,29 @@ function toggleMenu() {
 .app-bar {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   padding: 16px;
+  width: 100%;
 
   .menu-toggle {
     display: none;
+    position: relative;
     flex-direction: column;
     justify-content: space-around;
+    cursor: pointer;
     width: 20px;
     height: 20px;
-    cursor: pointer;
-    position: relative;
 
     span {
-      background: white;
-      width: 100%;
-      height: 3px;
-      border-radius: 5px;
       display: block;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       transition: 0.5s;
+      border-radius: 5px;
+      background: white;
+      width: 100%;
+      height: 3px;
 
       &:nth-child(1) {
         transform: translate(-50%, -7px);
@@ -146,17 +160,17 @@ function toggleMenu() {
     width: 500px;
 
     .nav-link {
+      display: inline-block;
       font-weight: 600;
       text-decoration: none;
-      display: inline-block;
 
       .underline {
         display: block;
-        height: 2px;
-        margin: 0 auto;
-        width: 0;
         transition: width 0.4s ease-out;
+        margin: 0 auto;
         background: var(--foreground-default);
+        width: 0;
+        height: 2px;
       }
 
       &.router-link-active,
@@ -164,8 +178,8 @@ function toggleMenu() {
         color: var(--link-color);
 
         .underline {
-          width: 100%;
           background: var(--link-color);
+          width: 100%;
         }
       }
     }
@@ -182,9 +196,9 @@ function toggleMenu() {
     gap: 16px;
 
     .social {
+      transition: filter 0.4s;
       width: 32px;
       height: 32px;
-      transition: filter 0.4s;
 
       &.linkedin {
         filter: saturate(0);
@@ -211,14 +225,16 @@ function toggleMenu() {
 
     &.menu-open {
       display: flex !important;
-      width: 50vw;
       position: absolute;
       left: 50px;
       flex-direction: column;
-      background: var(--background-default);
       gap: 8px;
       z-index: 1;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      background: var(--background-default);
+      padding: 16px;
+      width: 50vw;
     }
   }
 }
