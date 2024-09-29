@@ -102,7 +102,7 @@ function handleResize() {
         href="https://github.com/tanguyhardion"
         target="_blank"
         rel="noopener noreferrer"
-        v-tooltip.bottom="'Check out my GitHub'"
+        v-tooltip.left="'Check out my GitHub'"
       >
         <NuxtImg
           class="social github"

@@ -11,7 +11,8 @@ b {
 }
 
 .v-popper--theme-tooltip .v-popper__inner {
-  background-color: var(--foreground-default) !important;
-  color: var(--background-default) !important;
+  background-color: var(--background-alt) !important;
+  color: var(--foreground-default) !important;
   font-size: 13px;
+  overflow: hidden;
 }
