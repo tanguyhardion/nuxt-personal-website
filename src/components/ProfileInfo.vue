@@ -37,8 +37,8 @@ onMounted(() => {
     <client-only>
       <Vue3Lottie
         :animationData="animation"
+        renderer="canvas"
         class="lottie"
-        :renderer="'canvas'"
       />
     </client-only>
   </div>
@@ -65,7 +65,7 @@ onMounted(() => {
 .lottie {
   overflow: hidden;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   height: fit-content;
   animation: fadeIn 1s;
 }
