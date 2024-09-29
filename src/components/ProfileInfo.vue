@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Vue3Lottie } from 'vue3-lottie';
-import animation from '~/assets/images/lottie/animation.json';
+import animation from '~/public/images/lottie/animation.json';
 import dayjs from 'dayjs';
 
 const age = ref('');
