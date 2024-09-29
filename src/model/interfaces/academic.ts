@@ -5,6 +5,6 @@ export interface Academic {
   school: School;
   degree: string;
   field: string;
-  gpa: string;
+  gpa?: string;
   dates: DateRange;
 }

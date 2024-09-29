@@ -45,7 +45,7 @@ export const experienceList: Experience[] = [
     jobType: JobType.Internship,
     description: `Final year DUT (associate degree) internship in the department that manages
     the installation and support of the systems used by the company.`,
-    projects: ['Connect All Devices', 'SQLite Encrypter'],
+    projects: [],
     dates: {
       start: new Date('2024-02-01'),
       end: new Date('2024-07-01')

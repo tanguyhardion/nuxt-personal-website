@@ -9,14 +9,12 @@ useSeoMeta({
 
 const route = useRoute();
 
-const homePage = computed(() => route.name === 'index');
+const homePage = computed(() => route.name === '/');
 </script>
 
 <template>
   <div :class="{ 'home-page': homePage }">
     <NuxtRouteAnnouncer />
-
-    <div class="banner">Work in progress.</div>
 
     <NavBar />
 
@@ -34,22 +32,7 @@ div {
   }
 }
 
-.banner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #505050;
-  background: #101010;
-  padding: 8px 16px;
-}
-
 main {
-  margin: 0 20px 20px 20px;
-
-  &:not(.home-page) {
-    margin-top: 40px;
-  }
+  margin: 40px 20px 20px 20px;
 }
 </style>

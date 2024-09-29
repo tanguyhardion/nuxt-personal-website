@@ -44,7 +44,10 @@ onMounted(async () => {
               >{{ formatDate(academic.dates.start) }} - {{ formatDate(academic.dates.end) }}</span
             >
           </div>
-          <div class="gpa chip">
+          <div
+            class="gpa chip"
+            v-if="academic.gpa"
+          >
             <span class="material-icons">grade</span>
             <span>{{ academic.gpa }}</span>
           </div>

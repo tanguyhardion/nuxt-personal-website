@@ -19,12 +19,14 @@ onMounted(() => {
     <p class="info">
       I'm a
       <b> {{ age }} </b>
-      year-old computer engineering student, majoring in
+      year-old student at
+      <b> UTC </b>
+      majoring in
+      <b> Computer Engineering </b>
+      with a specialization in
       <b> AI </b>
       and
-      <b> Data Science </b>
-      at
-      <b> UTC</b>.
+      <b> Data Science</b>.
     </p>
     <p class="info">
       Currently, I'm looking for an

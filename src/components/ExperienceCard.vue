@@ -63,7 +63,7 @@ onMounted(async () => {
       </div>
       <div class="description">
         {{ experience.description }}
-        <p>
+        <p v-if="experience.projects.length">
           <span v-if="experience.projects.length > 1">Projects </span>
           <span v-else>Project </span>
           that I worked on: <b>{{ experience.projects.join(', ') }}</b>
