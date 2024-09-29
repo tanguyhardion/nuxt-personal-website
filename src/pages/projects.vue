@@ -13,27 +13,19 @@ import { projectList } from '~/data/project-list';
       </ProjectCard>
     </div>
 
-    <em class="disclaimer">
-      This is just a showcase. For more projects, check out my&nbsp;
+    <p class="disclaimer">
+      This is just a showcase. For more projects, check out my
       <a
         href="https://github.com/tanguyhardion"
         target="_blank"
         rel="noopener noreferrer"
         >GitHub</a
-      >
-      .
-    </em>
+      >.
+    </p>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.disclaimer {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0;
-  color: #757678;
-}
-
 .projects {
   width: 80vw;
   display: flex;
@@ -41,5 +33,11 @@ import { projectList } from '~/data/project-list';
   align-items: center;
   gap: 32px;
   margin: auto;
+}
+
+.disclaimer {
+  text-align: center;
+  margin: 30px 0;
+  color: var(--foreground-darker);
 }
 </style>
