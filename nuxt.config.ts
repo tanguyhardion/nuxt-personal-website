@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   srcDir: 'src/',
   css: ['~/assets/scss/main.scss'],
   image: {
-    dir: 'assets/images'
+    dir: 'public/images'
   },
   modules: ['@nuxt/image'],
   app: {
