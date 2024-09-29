@@ -6,22 +6,19 @@ const files: Ref<GithubFile[]> = ref([
     name: 'EU format, in French',
     path: '/pdf/hardion_cv.pdf',
     lastCommitDate: '',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png'
+    image: 'france.png'
   },
   {
     name: 'EU format, in English',
     path: '/pdf/hardion_resume.pdf',
     lastCommitDate: '',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1200px-Flag_of_Europe.svg.png'
+    image: 'europe.png'
   },
   {
     name: 'US format',
     path: '/pdf/hardion_resume_us.pdf',
     lastCommitDate: '',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png'
+    image: 'us.png'
   }
 ]);
 
@@ -43,7 +40,7 @@ onMounted(() => {
       >
         <a
           :href="file.path"
-          :style="{ '--link-image': `url(${file.image})` }"
+          :style="{ '--link-image': `url(/images/flags/${file.image})` }"
           target="_blank"
           class="link"
         >
@@ -100,7 +97,7 @@ onMounted(() => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: var(--link-image);
+          background: var(--link-image), var(--foreground-default);
           background-size: cover;
           background-position: center;
           opacity: 0.15;

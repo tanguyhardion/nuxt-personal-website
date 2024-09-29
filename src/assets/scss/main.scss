@@ -9,3 +9,9 @@ a {
 b {
   font-weight: 700;
 }
+
+.v-popper--theme-tooltip .v-popper__inner {
+  background-color: var(--foreground-default) !important;
+  color: var(--background-default) !important;
+  font-size: 13px;
+}

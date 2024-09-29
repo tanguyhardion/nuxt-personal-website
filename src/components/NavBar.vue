@@ -77,9 +77,21 @@ function handleResize() {
     </nav>
     <div class="socials">
       <a
+        href="mailto:tanguy.hardion@etu.utc.fr"
+        target="_blank"
+        rel="noopener noreferrer"
+        v-tooltip.bottom="'Email me'"
+      >
+        <NuxtImg
+          class="social email"
+          src="/icons/email.png"
+        />
+      </a>
+      <a
         href="https://linkedin.com/in/tanguy-hardion"
         target="_blank"
         rel="noopener noreferrer"
+        v-tooltip.bottom="'Add me on LinkedIn'"
       >
         <NuxtImg
           class="social linkedin"
@@ -90,6 +102,7 @@ function handleResize() {
         href="https://github.com/tanguyhardion"
         target="_blank"
         rel="noopener noreferrer"
+        v-tooltip.bottom="'Check out my GitHub'"
       >
         <NuxtImg
           class="social github"
@@ -199,6 +212,10 @@ function handleResize() {
       transition: filter 0.4s;
       width: 32px;
       height: 32px;
+
+      &.email:hover {
+        filter: brightness(0) invert(1);
+      }
 
       &.linkedin {
         filter: saturate(0);
