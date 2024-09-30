@@ -100,7 +100,7 @@ onMounted(() => {
           background: var(--link-image), var(--foreground-default);
           background-size: cover;
           background-position: center;
-          opacity: 0.15;
+          opacity: 0.2;
           z-index: -1;
           border-radius: 24px;
         }
