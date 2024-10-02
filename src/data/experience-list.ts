@@ -14,8 +14,8 @@ export const experienceList: Experience[] = [
     description: 'Summer job that followed my previous internship.',
     projects: ['CPage Map'],
     dates: {
-      start: new Date('2024-09-01'),
-      end: new Date('2025-02-01')
+      start: new Date('2024-07-01'),
+      end: new Date('2024-08-01')
     }
   },
   {
@@ -30,8 +30,8 @@ export const experienceList: Experience[] = [
     description: `Mid-engineering degree internship at CPage, a company that develops software for public health institutions.`,
     projects: ['Visualizer', 'Llama 2 fine-tuning'],
     dates: {
-      start: new Date('2024-02-01'),
-      end: new Date('2024-07-01')
+      start: new Date('2024-07-01'),
+      end: new Date('2024-12-31')
     }
   },
   {
@@ -47,8 +47,8 @@ export const experienceList: Experience[] = [
     the installation and support of the systems used by the company.`,
     projects: [],
     dates: {
-      start: new Date('2024-02-01'),
-      end: new Date('2024-07-01')
+      start: new Date('2022-04-01'),
+      end: new Date('2022-06-01')
     }
   }
 ];

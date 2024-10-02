@@ -21,8 +21,7 @@ watch(
     });
 
     if (newRoute) {
-      const routeString = newRoute.toString();
-      document.title = getTitle(routeString);
+      document.title = getTitle(newRoute.toString());
     }
   }
 );
@@ -35,10 +34,14 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize);
 });
 
-function getTitle(route: string) {
+function getTitle(route: string | undefined): string {
+  if (!route) {
+    return 'Tanguy Hardion';
+  }
+
   return route === 'index'
     ? 'Tanguy Hardion'
-    : `Tanguy Hardion - ${route.charAt(0).toUpperCase() + route.slice(1)}`;
+    : `Tanguy Hardion | ${route.charAt(0).toUpperCase() + route.slice(1)}`;
 }
 
 function toggleMenu() {
