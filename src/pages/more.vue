@@ -24,9 +24,32 @@ const files: Ref<GithubFile[]> = ref([
 
 onMounted(() => {
   files.value.forEach(async (file) => {
-    file.lastCommitDate = (await getLastCommitDate(file.path)) || '';
+    const storedData = localStorage.getItem(file.path);
+
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+
+      if (!isStale(parsedData.timestamp)) {
+        // if data is fresh, use it
+        file.lastCommitDate = parsedData.lastCommitDate;
+      } else {
+        // if data is stale, fetch the commit date and store it
+        await fetchAndStoreData(file, file.path);
+      }
+    } else {
+      // no data, fetch and store it
+      await fetchAndStoreData(file, file.path);
+    }
   });
 });
+
+async function fetchAndStoreData(file: GithubFile, path: string) {
+  const lastCommitDate = await getLastCommitDate(path);
+  if (lastCommitDate) {
+    file.lastCommitDate = lastCommitDate;
+    localStorage.setItem(path, JSON.stringify({ lastCommitDate, timestamp: Date.now() }));
+  }
+}
 </script>
 
 <template>

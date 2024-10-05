@@ -27,6 +27,7 @@ onMounted(async () => {
         rel="noopener noreferrer"
       >
         <NuxtImg
+          loading="lazy"
           class="image"
           :id="`image-${experience.company.logo}`"
           :src="`/logos/${experience.company.logo}`"
@@ -154,6 +155,10 @@ onMounted(async () => {
       }
     }
 
+    .description {
+      text-align: justify;
+    }
+
     .footer {
       .name {
         letter-spacing: 1px;
@@ -188,7 +193,7 @@ onMounted(async () => {
 
       .description {
         font-size: 0.9rem;
-        text-align: justify;
+        text-align: unset;
       }
     }
   }
@@ -219,6 +224,7 @@ onMounted(async () => {
 
       .description {
         font-size: 0.8rem;
+        text-align: unset;
       }
     }
   }

@@ -27,6 +27,7 @@ onMounted(async () => {
         rel="noopener noreferrer"
       >
         <NuxtImg
+          loading="lazy"
           class="image"
           :id="`image-${academic.school.logo}`"
           :src="`/logos/${academic.school.logo}`"
@@ -188,6 +189,7 @@ onMounted(async () => {
 
       .description {
         font-size: 0.9rem;
+        text-align: unset;
       }
     }
   }

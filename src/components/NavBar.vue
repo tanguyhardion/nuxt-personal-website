@@ -78,7 +78,10 @@ function handleResize() {
         <span class="underline"></span>
       </NuxtLink>
     </nav>
-    <div class="socials">
+    <div
+      class="socials"
+      v-once
+    >
       <a
         href="mailto:tanguy.hardion@etu.utc.fr"
         target="_blank"
@@ -86,6 +89,7 @@ function handleResize() {
         v-tooltip.bottom="'Email me'"
       >
         <NuxtImg
+          loading="lazy"
           class="social email"
           src="/icons/email.png"
         />
@@ -97,6 +101,7 @@ function handleResize() {
         v-tooltip.bottom="'Add me on LinkedIn'"
       >
         <NuxtImg
+          loading="lazy"
           class="social linkedin"
           src="/icons/linkedin.png"
         />
@@ -108,6 +113,7 @@ function handleResize() {
         v-tooltip.left="'Check out my GitHub'"
       >
         <NuxtImg
+          loading="lazy"
           class="social github"
           src="/icons/github.png"
         />

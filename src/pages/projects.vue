@@ -16,7 +16,7 @@ import { projectList } from '~/data/project-list';
     <p class="disclaimer">
       This is just a showcase. For more projects, check out my
       <a
-        href="https://github.com/tanguyhardion"
+        href="https://github.com/tanguyhardion?tab=repositories"
         target="_blank"
         rel="noopener noreferrer"
         >GitHub</a

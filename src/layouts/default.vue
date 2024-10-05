@@ -8,8 +8,7 @@ useSeoMeta({
 });
 
 const route = useRoute();
-
-const homePage = computed(() => route.name === '/');
+const homePage = computed(() => route.name === 'index');
 </script>
 
 <template>
@@ -18,7 +17,7 @@ const homePage = computed(() => route.name === '/');
 
     <NavBar />
 
-    <main :class="{ 'home-page': homePage }">
+    <main>
       <NuxtPage />
     </main>
   </div>

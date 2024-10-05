@@ -23,6 +23,7 @@ onMounted(async () => {
   >
     <div class="image-container">
       <NuxtImg
+        loading="lazy"
         class="image"
         :id="`image-${project.image}`"
         :src="`/illustrations/${project.image}`"
@@ -87,6 +88,7 @@ onMounted(async () => {
           v-if="project.link"
         >
           <NuxtImg
+            loading="lazy"
             class="image"
             src="/icons/github.png"
             v-if="project.link.includes('github.com')"
@@ -111,6 +113,7 @@ onMounted(async () => {
           v-if="project.contextLogo"
         >
           <NuxtImg
+            loading="lazy"
             class="image"
             :src="`/logos/${project.contextLogo}`"
             alt="context_logo"
@@ -150,11 +153,11 @@ onMounted(async () => {
   }
 
   .image-container {
-    display: flex;  
+    display: flex;
     width: 250px;
     height: 250px;
     flex: 0 0 250px;
-    
+
     .image {
       width: 100%;
       height: 100%;
@@ -257,6 +260,7 @@ onMounted(async () => {
 
       .description {
         font-size: 0.9rem;
+        text-align: unset;
       }
     }
   }
@@ -277,7 +281,7 @@ onMounted(async () => {
 
       .chips {
         gap: 4px !important;
-        
+
         .chip {
           font-size: 0.6rem;
         }
@@ -285,6 +289,7 @@ onMounted(async () => {
 
       .description {
         font-size: 1rem;
+        text-align: unset;
       }
     }
   }
