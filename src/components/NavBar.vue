@@ -2,12 +2,12 @@
 import { watch } from 'vue';
 
 const links = [
-  { name: 'Home', path: '/', color: '#dc143c', active: true },
-  { name: 'Academics', path: '/academics', color: '#ffdd48', active: false },
-  { name: 'Experience', path: '/experience', color: '#f16529', active: false },
-  { name: 'Projects', path: '/projects', color: '#5ec9f8', active: false },
-  { name: 'Skills', path: '/skills', color: '#9148ff', active: false },
-  { name: 'More', path: '/more', color: '#757678', active: false }
+  { name: 'Home', path: '/', color: '#dc143c' },
+  { name: 'Academics', path: '/academics', color: '#ffdd48' },
+  { name: 'Experience', path: '/experience', color: '#f16529' },
+  { name: 'Projects', path: '/projects', color: '#5ec9f8' },
+  { name: 'Skills', path: '/skills', color: '#9148ff' },
+  { name: 'More', path: '/more', color: '#757678' }
 ];
 
 const route = useRoute();
@@ -16,10 +16,6 @@ const isMenuOpen = ref(false);
 watch(
   () => route.name,
   async (newRoute) => {
-    links.forEach((link) => {
-      link.active = link.name.toLowerCase() === newRoute;
-    });
-
     if (newRoute) {
       document.title = getTitle(newRoute.toString());
     }
