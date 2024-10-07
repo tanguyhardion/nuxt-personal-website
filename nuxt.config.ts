@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     dir: 'public/images'
   },
   modules: ['@nuxt/image', 'nuxt-gtag'],
-  ssr: false,
   gtag: {
     enabled: process.env.NODE_ENV === 'production',
     id: 'G-60YRWFVFZD'
