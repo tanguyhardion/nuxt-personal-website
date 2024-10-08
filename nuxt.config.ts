@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxt/image', 'nuxt-gtag'],
   gtag: {
-    enabled: process.env.NODE_ENV === 'production',
+    // enabled: process.env.NODE_ENV === 'production',
+    enabled: false,
     id: 'G-60YRWFVFZD'
   },
   app: {
